@@ -7,7 +7,7 @@ spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
-
+.DS_Store
 # Ignore bundler config.
 vendor/bundle
 
