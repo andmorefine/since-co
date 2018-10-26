@@ -25,6 +25,12 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 # bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 
+if Rails.env.development? || Rails.env.test?
+  pidfile "./tmp/puma.pid"
+else
+  pidfile "/var/run/since-co/since-co.pid"
+  bind "unix:///var/run/since-co/since-co.sock"
+end
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
