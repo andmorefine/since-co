@@ -9,21 +9,48 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'dotenv-rails'
-
 gem 'jbuilder', '~> 2.5'
-# gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'vuejs-rails'
+gem 'axios_rails'
+gem 'es6-promise-rails'
+gem 'rb-readline'
+gem 'jquery-rails'
+gem 'slim-rails'
+gem 'font-awesome-rails'
+gem 'kaminari', '~> 1.0.0'
+gem 'omniauth-google-oauth2'
+gem 'carrierwave'
+gem 'aws-sdk', '~> 2.1'
+gem 'composite_primary_keys'
+gem 'fog-aws'
+gem 'redis', '~> 4.0.1'
+gem 'hiredis'
+gem 'faraday'
+gem 'bootstrap', '~> 4.1.0'
+gem 'autosize-rails'
+gem 'autoprefixer-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'activerecord-import'
+gem 'zeroclipboard-rails'
+gem 'sendgrid-ruby'
+gem 'whenever'
+gem 'holiday_jp'
+gem 'octokit'
+gem 'ransack'
+gem 'browserify-rails'
+gem 'chatwork'
+gem 'gon'
+gem 'net-ssh'
+gem 'net-scp'
 
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "simplecov"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -36,7 +63,18 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
+  gem 'better_errors'
+  gem 'bullet'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+  gem 'tapp'
+  gem 'awesome_print'
+  gem 'timecop'
+  gem 'guard-rspec'
+  gem 'database_rewinder'
+  gem 'activerecord-commentator'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
-
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
