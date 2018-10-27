@@ -47,5 +47,6 @@ test:
 production:
   <<: *default
   database: since-co_production
+  host: <%= ENV['DB_HOST'] %>
   username: andmorefine
   password: <%= ENV['SINCE-CO_DATABASE_PASSWORD'] %>
