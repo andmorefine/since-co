@@ -6,11 +6,11 @@
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
-daemonize ENV['DAEMONIZE']
+daemonize true
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch("PORT") { 3000 }
+# port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
@@ -25,12 +25,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 # bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 
-if Rails.env.development? || Rails.env.test?
-  pidfile "./tmp/puma.pid"
-else
-  pidfile "/var/run/since-co/since-co.pid"
-  bind "unix:///var/run/since-co/since-co.sock"
-end
+pidfile "/var/run/since-co/since-co.pid"
+bind "unix:///var/run/since-co/since-co.sock"
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
