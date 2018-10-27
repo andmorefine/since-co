@@ -10,6 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+
+//= require babel-polyfill/lib
+//= require jquery3
+//= require jquery_ujs
+//= require vue
+//= require vuex
+//= require promise
+//= require axios
+//= require popper
+//= require bootstrap
+
 //= require activestorage
 //= require_tree .
