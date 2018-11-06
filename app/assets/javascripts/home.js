@@ -8,6 +8,8 @@ const axios = axiosBase.create({
   responseType: 'json'
 });
 
+if (document.getElementById('vue-app')) {
+
 var vue_app = new Vue({
   el: '#vue-app',
   name: 'vue-app',
@@ -62,3 +64,4 @@ var vue_app = new Vue({
     },
   }
 });
+}
