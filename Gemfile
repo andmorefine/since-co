@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'vuejs-rails'
 gem 'axios_rails'
+gem 'grape'
 gem 'es6-promise-rails'
 gem 'rb-readline'
 gem 'jquery-rails'

@@ -1,0 +1,2 @@
+class Proverb < ApplicationRecord
+end

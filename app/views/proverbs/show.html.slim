@@ -1,6 +1,6 @@
 #vue-app.container-fluid[v-cloak]
-  h1.text-center.my-3
-   | あなたのお名前を入力してください
+  h1.text-center
+   | May I have you name, please?
 
   ul.list-group
     li.list-group-item v-for="user in userIndex"
@@ -14,8 +14,8 @@
   button.btn.btn-primary.btn-lg.btn-block type="button" @click="post"
     | 送信
 
-  / .text-center.mt-4
-  /   img src="//d2y9vn9mruehfd.cloudfront.net/img/sample/welcome_page_blog_header.jpg" class="img-fluid img-thumbnail rounded mx-auto" alt="Responsive image"
+  .text-center.mt-4
+    img src="//d2y9vn9mruehfd.cloudfront.net/img/sample/welcome_page_blog_header.jpg" class="img-fluid img-thumbnail rounded mx-auto" alt="Responsive image"
 
 / <!-- Modal -->
 .modal.fade.is-valid-modal tabindex="-1" role="dialog" aria-hidden="true"
