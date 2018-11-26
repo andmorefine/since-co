@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'vuejs-rails'
 gem 'axios_rails'
 gem 'grape'
@@ -19,7 +19,6 @@ gem 'rb-readline'
 gem 'jquery-rails'
 gem 'slim-rails'
 gem 'font-awesome-rails'
-gem 'kaminari', '~> 1.0.0'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'aws-sdk', '~> 2.1'
@@ -45,6 +44,8 @@ gem 'gon'
 gem 'net-ssh'
 gem 'net-scp'
 
+gem 'solidus'
+gem 'solidus_auth_devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -59,11 +60,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'capistrano', '3.7.0'
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rbenv-vars'
   gem 'better_errors'
   gem 'bullet'
   gem 'pry-rails'
