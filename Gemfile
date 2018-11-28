@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'rails-i18n'
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'vuejs-rails'
 gem 'axios_rails'
@@ -46,6 +47,9 @@ gem 'net-scp'
 
 gem 'solidus'
 gem 'solidus_auth_devise'
+gem 'solidus_i18n'
+gem 'devise-i18n'
+gem 'kaminari-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
