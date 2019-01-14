@@ -14,7 +14,14 @@ html
     title
       | andmorefine
   body
+
     = render "layouts/nav"
+
+    p
+      = notice
+    p
+      = alert
+
     == yield
   = include_gon
   = javascript_include_tag 'application'
