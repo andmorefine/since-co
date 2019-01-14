@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resource :user
 
-  resource :proverb, only: [:show, :new, :create, :destroy]
+  resources :proverb
 
   resource :socket
   # トップページ

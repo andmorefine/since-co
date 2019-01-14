@@ -15,7 +15,9 @@ html
       | andmorefine
   body
 
-    = render "layouts/nav"
+    == render "layouts/nav"
+
+    == breadcrumbs
 
     p
       = notice

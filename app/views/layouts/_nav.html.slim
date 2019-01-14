@@ -14,8 +14,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       /   a.nav-link href="/socket/"
       /     | Socket
       li.nav-item
-        a.nav-link href="/proverb/"
-          | ことわざ一覧
+        = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
     ul.navbar-nav.ml-auto
-      a.nav-link href="/members/sign_in/"
-        | ログイン
+      - if member_signed_in?
+        = link_to "ログアウト", destroy_member_session_path, method: :delete, :class => "nav-link"
+      - else
+        = link_to "ログイン", new_member_session_path, method: :get, :class => "nav-link"
