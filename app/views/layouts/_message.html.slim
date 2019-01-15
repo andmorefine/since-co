@@ -1,0 +1,7 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    div data-alert='' class="alert alert-dismissible #{name.to_s == 'notice' ? 'alert-success' : 'alert-danger'}"
+      = content_tag :div, msg
+      button.close type="button" data-dismiss="alert" aria-label="Close"
+        span
+          | &times;

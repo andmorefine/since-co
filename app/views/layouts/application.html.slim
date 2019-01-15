@@ -17,13 +17,13 @@ html
 
     == render "layouts/nav"
 
-    == breadcrumbs
+    .container-fluid.pt-3
+      == breadcrumbs
 
-    p
-      = notice
-    p
-      = alert
+    .container-fluid
+      == render "layouts/message"
 
     == yield
+
   = include_gon
   = javascript_include_tag 'application'

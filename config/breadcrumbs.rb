@@ -1,10 +1,10 @@
 crumb :root do
-  link "Home", root_path
+  link "TOP", root_path
 end
 
 # proverb#index
 crumb :proverb do
-  link "Proverb", proverb_index_path
+  link "ことわざ一覧", proverb_index_path
   parent :root
 end
 

@@ -8,6 +8,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 
 gem 'devise'
+gem 'devise-i18n'
 
 gem 'gretel'
 
