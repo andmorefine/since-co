@@ -1,0 +1,2 @@
+class MAlphabetal < ApplicationRecord
+end

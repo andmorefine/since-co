@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_134435) do
+ActiveRecord::Schema.define(version: 2019_01_16_142633) do
+
+  create_table "m_alphabetals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_134435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -35,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_134435) do
     t.string "kana"
     t.text "text"
     t.string "image"
+    t.integer "order", default: 0
     t.integer "alphabetal_id", default: 0, null: false
     t.boolean "delete_flag", default: false
     t.datetime "created_at", null: false
