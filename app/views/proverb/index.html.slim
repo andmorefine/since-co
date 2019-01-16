@@ -1,6 +1,19 @@
-- breadcrumb :proverb
+- content_for :html_title do
+  | ことわざ一覧
+- breadcrumb :proverbs
 
 #vue-app.container-fluid
   h1.text-center
-   | May I have you name, please?
+   | ことわざ一覧
 
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th ことわざ
+        th 詳細
+
+    tbody
+      - @proverbs.each do |proverb|
+        tr
+          td = proverb.name
+          td = link_to "詳細", proverb_path(proverb.id), class: "btn btn-success"

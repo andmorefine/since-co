@@ -4,6 +4,18 @@ Rails.application.routes.draw do
 
   mount API::Root => '/'
 
+  namespace :admin do
+    resources :proverb do
+
+      collection do
+        get 'preview'
+        post 'reset'
+      end
+    end
+
+  end
+
+
   resource :user
 
   resources :proverb

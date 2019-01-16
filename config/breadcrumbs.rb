@@ -3,9 +3,14 @@ crumb :root do
 end
 
 # proverb#index
-crumb :proverb do
+crumb :proverbs do
   link "ことわざ一覧", proverb_index_path
   parent :root
+end
+
+crumb :proverb do |project|
+  link project.name, proverb_path(project)
+  parent :proverbs
 end
 
 # crumb :projects do

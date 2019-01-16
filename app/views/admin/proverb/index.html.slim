@@ -1,0 +1,19 @@
+
+#vue-proverb.container-fluid[v-cloak]
+  h1.row
+    span.col
+      | ことわざ一覧
+    span.col-auto.ml-auto
+      = link_to "新規登録", new_admin_proverb_path, class: "btn btn-info"
+
+  ul.list-group
+    li.list-group-item v-for="proverb in proverbIndex"
+      span
+        | {{ proverb.id }} - 
+      span
+        | {{ proverb.name }}
+      a.btn.btn-secondary.ml-3 :href="'/admin/proverb/' + proverb.id+ '/edit'"
+        | 編集
+      / a[v-bind:href="proverb.id"]
+        / ｜ 編集
+      / = link_to "一覧", edit_admin_proverb_path("@{proverb.id}"), class: "btn btn-secondary ml-3"

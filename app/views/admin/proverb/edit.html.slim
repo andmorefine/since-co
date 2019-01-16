@@ -1,0 +1,18 @@
+
+#vue-proverb-edit.container-fluid
+  h1
+    | ことわざ編集
+
+  .form-group.mt-2
+    input.form-control type="text" placeholder="名" v-model="proverb.name"
+    .mt-3
+      input.form-control type="text" placeholder="かな" v-model="proverb.kana"
+    .mt-3
+      textarea.form-control type="text" placeholder="文章" rows="5" v-model="proverb.text"
+
+  .row
+    .col-auto
+      = link_to "一覧", admin_proverb_index_path, class: "btn btn-secondary"
+    .col-auto.ml-auto
+      button.btn.btn-primary type="button" @click="proverbUpdate"
+        | 更新

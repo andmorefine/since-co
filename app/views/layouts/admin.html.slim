@@ -12,17 +12,10 @@ html
     = favicon_link_tag
 
     title
-      = content_for?(:html_title) ? yield(:html_title) : "andmorefine"
-
+      | andmorefine
   body
 
-    == render "layouts/nav"
-
-    .container-fluid.pt-3
-      == breadcrumbs
-
-    .container-fluid
-      == render "layouts/message"
+    == render "layouts/nav_admin"
 
     == yield
 
