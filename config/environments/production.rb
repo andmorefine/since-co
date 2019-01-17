@@ -30,6 +30,9 @@ Rails.application.configure do
   # babelifyでES6が書ける
   config.browserify_rails.commandline_options = '--transform babelify'
   config.browserify_rails.use_browserifyinc = true
+  config.browserify_rails.source_map_environments << "production"
+  # 厳格モードで対応
+  config.browserify_rails.node_env = "production"
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true

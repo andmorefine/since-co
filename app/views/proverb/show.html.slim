@@ -13,7 +13,10 @@
   hr
   p.text-center
     = @proverb.text
+  - if @proverb.image.present?
+    .mt-3
+      = image_tag("//andmorefine.s3.amazonaws.com/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block w-100", alt: @proverb.name)
 
-  .row
+  .row.mt-3
     .col
       = link_to "一覧", proverb_index_path, class: "btn btn-info"

@@ -1,5 +1,23 @@
 
-#vue-proverb.container-fluid
+#vue-proverb-edit.container-fluid[v-cloak]
   h1
     | ことわざ表示
 
+  .form-group.mt-2
+    h2.text-center
+      | {{ proverb.name }}
+    .mt-3
+      p.text-center
+        | （{{ proverb.kana }}）
+    .mt-3
+      p.text-center
+        | {{ proverb.text }}
+    .mt-3
+      img.img-thumbnail.mx-auto.d-block.w-100 :src="'//andmorefine.s3.amazonaws.com/img/proverb/' + proverb.image" :alt="proverb.name"
+
+  .row
+    .col-auto
+      = link_to "一覧", admin_proverb_index_path, class: "btn btn-secondary"
+    .col-auto.ml-auto
+      a.btn.btn-info :href="'/admin/proverb/' + proverb.id + '/edit'"
+        | 編集

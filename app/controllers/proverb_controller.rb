@@ -1,7 +1,7 @@
 class ProverbController < ApplicationController
 
   def index
-    @proverbs = Proverb.all
+    @proverbs = Proverb.all.order(created_at: :desc)
   end
 
   def show

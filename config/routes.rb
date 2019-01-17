@@ -6,19 +6,24 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :proverb do
-
       collection do
         get 'preview'
-        post 'reset'
+      end
+      member do
+        get :fetch
       end
     end
-
   end
-
 
   resource :user
 
   resources :proverb
+
+  resources :item do
+    collection do
+      post 'save_s3_images'
+    end
+  end
 
   resource :socket
   # トップページ

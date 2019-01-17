@@ -6,13 +6,17 @@ class Admin::ProverbController < ApplicationController
     proverbs = Proverb.all.order(created_at: :desc)
     render :json => proverbs
   end
+  
+  def fetch
+    proverb = Proverb.find_by_id(params[:id])
+    render :json => proverb
+  end
 
   def index
   end
 
   def show
-    proverb = Proverb.find_by_id(params[:id])
-    render :json => proverb
+    gon.id = params[:id]
   end
 
   def edit
@@ -40,6 +44,7 @@ class Admin::ProverbController < ApplicationController
       :name,
       :kana,
       :text,
+      :image,
     )
   end
 

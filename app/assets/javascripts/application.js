@@ -20,6 +20,7 @@
 //= require axios
 //= require popper
 //= require bootstrap
+//= require jquery.autosize
 
 //= require activestorage
 //= require_tree .

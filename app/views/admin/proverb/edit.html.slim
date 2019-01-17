@@ -1,5 +1,5 @@
 
-#vue-proverb-edit.container-fluid
+#vue-proverb-edit.container-fluid[v-cloak]
   h1
     | ことわざ編集
 
@@ -9,10 +9,31 @@
       input.form-control type="text" placeholder="かな" v-model="proverb.kana"
     .mt-3
       textarea.form-control type="text" placeholder="文章" rows="5" v-model="proverb.text"
+    .mt-3
+      img.img-thumbnail.mx-auto.d-block.w-100 :src="'//andmorefine.s3.amazonaws.com/img/proverb/' + proverb.image" :alt="proverb.name"
+
+  .row.mt-3
+    .input-group.align-items-center
+    .col-sm-6
+      .input-group
+        .input-group-prepend
+          .input-group-text アップロード先
+        input.form-control type="text" placeholder="/work_type/maker/series/form_type" v-model="imageItemDir" readonly="readonly"
+    .col-auto
+      button.btn.btn-success @click="upload()"
+        | 画像をアップロード
+    .col-12.mt-3
+      input.w-100.img-multiple @change="selectedFile" type="file" multiple="multiple"
+      .message-area.mt-2
+
+  .preview-photo
 
   .row
     .col-auto
       = link_to "一覧", admin_proverb_index_path, class: "btn btn-secondary"
     .col-auto.ml-auto
+      a.btn.btn-info :href="'/admin/proverb/' + proverb.id"
+        | 表示
+    .col-auto
       button.btn.btn-primary type="button" @click="proverbUpdate"
         | 更新

@@ -27,6 +27,12 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # babelifyでES6が書ける
+  config.browserify_rails.commandline_options = '--transform babelify'
+  config.browserify_rails.source_map_environments << "development"
+  # 厳格モードで対応
+  config.browserify_rails.node_env = "development"
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 

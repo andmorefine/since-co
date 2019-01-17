@@ -1,11 +1,15 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+var image_mixin = require('mixin_image.js');
+
+
 if (document.getElementById('vue-proverb')) {
 
 var vue_proverb = new Vue({
   el: '#vue-proverb',
   name: 'vue-proverb',
+  mixins: [image_mixin],
   data: function() {
     return {
       proverb_index: [],
@@ -13,6 +17,7 @@ var vue_proverb = new Vue({
         name: '',
         kana: '',
         text: '',
+        image: '',
       },
     }
   },
@@ -23,7 +28,8 @@ var vue_proverb = new Vue({
     proverbIndex: function() {
       return this.proverb_index;
     },
-    validation: function() {
+    validation: function () {
+      this.proverb.image = this.uploadFileName;
       var proverb = this.proverb;
       return {
         name: (!!proverb.name),
@@ -66,6 +72,7 @@ if (document.getElementById('vue-proverb-edit')) {
   var vue_proverb_edit = new Vue({
     el: '#vue-proverb-edit',
     name: 'vue-proverb-edit',
+    mixins: [image_mixin],
     data: function() {
       return {
         proverb: {
@@ -73,6 +80,7 @@ if (document.getElementById('vue-proverb-edit')) {
           name: '',
           kana: '',
           text: '',
+          image: '',
         },
       }
     },
@@ -81,6 +89,7 @@ if (document.getElementById('vue-proverb-edit')) {
     },
     computed: {
       validation: function() {
+        this.proverb.image = this.uploadFileName;
         var proverb = this.proverb;
         return {
           name: (!!proverb.name),
@@ -92,10 +101,11 @@ if (document.getElementById('vue-proverb-edit')) {
     },
     methods: {
       get: function(id) {
-        axios.get('/admin/proverb/' + id).then(response => {
+        axios.get('/admin/proverb/' + id + '/fetch').then(response => {
           this.proverb.name = response.data.name;
           this.proverb.kana = response.data.kana;
           this.proverb.text = response.data.text;
+          this.proverb.image = response.data.image;
         });
       },
       proverbUpdate: function() {
@@ -109,4 +119,4 @@ if (document.getElementById('vue-proverb-edit')) {
       },
     }
   });
-  }
+}
