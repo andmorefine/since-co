@@ -1,7 +1,9 @@
 class ProverbController < ApplicationController
 
   def index
-    @proverbs = Proverb.all.order(created_at: :desc)
+    @m_alphabetals = MAlphabetal.joins(:proverb)
+                                .distinct
+                                .where("proverbs.delete_flag = false")
   end
 
   def show

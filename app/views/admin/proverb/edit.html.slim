@@ -10,6 +10,11 @@
     .mt-3
       textarea.form-control type="text" placeholder="文章" rows="5" v-model="proverb.text"
     .mt-3
+      select.form-control v-model="proverb.alphabetal_id"
+        option Default select
+        option v-for="alpha in alphabetal_index" :value="alpha.id"
+          | {{ alpha.name }}
+    .mt-3
       img.img-thumbnail.mx-auto.d-block.w-100 :src="'//andmorefine.s3.amazonaws.com/img/proverb/' + proverb.image" :alt="proverb.name"
 
   .row.mt-3

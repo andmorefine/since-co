@@ -6,14 +6,10 @@
   h1.text-center
    | ことわざ一覧
 
-  table.table.table-bordered.table-hover
-    thead
-      tr
-        th ことわざ
-        th 詳細
+  div
+    div
+      - @m_alphabetals.each do |alphabetal|
+        h2 = alphabetal.name
 
-    tbody
-      - @proverbs.each do |proverb|
-        tr
-          td = proverb.name
-          td = link_to "詳細", proverb_path(proverb.id), class: "btn btn-success"
+        - alphabetal.proverb.each do |proverb|
+          span = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"

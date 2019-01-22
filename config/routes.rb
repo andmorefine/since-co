@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :proverb do
       collection do
-        get 'preview'
+        get 'preview', "alphabetal"
       end
       member do
         get :fetch
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resource :user
 
+  resources :alphabetal
   resources :proverb
+
 
   resources :item do
     collection do

@@ -2,14 +2,30 @@
 // All this logic will automatically be available in application.js.
 
 var image_mixin = require('mixin_image.js');
-
+var alphabetal_mixin = {
+  data: function () {
+    return {
+      alphabetal_index: {},
+    };
+  },
+  created: function () {
+    this.getAlphabetal();
+  },
+  methods: {
+    getAlphabetal: function () {
+      axios.get('/admin/proverb/alphabetal').then(response => {
+        this.alphabetal_index = response.data;
+      });
+    },
+  },
+};
 
 if (document.getElementById('vue-proverb')) {
 
 var vue_proverb = new Vue({
   el: '#vue-proverb',
   name: 'vue-proverb',
-  mixins: [image_mixin],
+  mixins: [image_mixin, alphabetal_mixin],
   data: function() {
     return {
       proverb_index: [],
@@ -18,6 +34,7 @@ var vue_proverb = new Vue({
         kana: '',
         text: '',
         image: '',
+        alphabetal_id: null,
       },
     }
   },
@@ -61,6 +78,7 @@ var vue_proverb = new Vue({
         this.proverb.name = "";
         this.proverb.kana = "";
         this.proverb.text = "";
+        this.proverb.alphabetal_id = null;
         this.get();
       });
     },
@@ -72,7 +90,7 @@ if (document.getElementById('vue-proverb-edit')) {
   var vue_proverb_edit = new Vue({
     el: '#vue-proverb-edit',
     name: 'vue-proverb-edit',
-    mixins: [image_mixin],
+    mixins: [image_mixin, alphabetal_mixin],
     data: function() {
       return {
         proverb: {
@@ -81,6 +99,7 @@ if (document.getElementById('vue-proverb-edit')) {
           kana: '',
           text: '',
           image: '',
+          alphabetal_id: null,
         },
       }
     },
@@ -106,15 +125,17 @@ if (document.getElementById('vue-proverb-edit')) {
           this.proverb.kana = response.data.kana;
           this.proverb.text = response.data.text;
           this.proverb.image = response.data.image;
+          this.proverb.alphabetal_id = response.data.alphabetal_id;
         });
       },
-      proverbUpdate: function() {
+      proverbUpdate: function () {
+        var self = this;
         if (!this.isValid) {
           $('.is-valid-modal').modal('show');
           return false;
         }
         axios.put('/admin/proverb/' + this.proverb.id, this.proverb).then(response => {
-
+          self.get(this.proverb.id);
         });
       },
     }
