@@ -10,6 +10,11 @@
     .mt-3
       textarea.form-control type="text" placeholder="文章" rows="5" v-model="proverb.text"
     .mt-3
+      select.form-control v-model="proverb.alphabetal_id"
+        option value="0" Default select
+        option v-for="alpha in alphabetal_index" :value="alpha.id"
+          | {{ alpha.name }}
+    .mt-3
       img.img-thumbnail.mx-auto.d-block.w-100 :src="'//andmorefine.s3.amazonaws.com/img/proverb/' + proverb.image" :alt="proverb.name"
 
   .row.mt-3
@@ -34,3 +39,22 @@
     .col-auto.ml-auto
       button.btn.btn-primary type="button" @click="proverbPost"
         | 送信
+
+
+
+/ <!-- Modal -->
+.modal.fade.is-valid-modal tabindex="-1" role="dialog" aria-hidden="true"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title
+          | 必須項目
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true"
+            | &times;
+
+      .modal-body
+        | 入力してください
+      .modal-footer
+        button.btn.btn-secondary type="button" data-dismiss="modal"
+          | Close

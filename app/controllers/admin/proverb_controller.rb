@@ -31,7 +31,11 @@ class Admin::ProverbController < Admin::Base
   def destroy
     proverb = Proverb.find(params[:_json])
     proverb.delete_flag = true
-    proverb.save
+    begin
+      proverb.save!
+    rescue => e
+      p e.message
+    end
   end
 
   def update
@@ -44,7 +48,11 @@ class Admin::ProverbController < Admin::Base
   end
 
   def create
-    Proverb.create(proverb_params)
+    begin
+      Proverb.create!(proverb_params)
+    rescue => e
+      p e.message
+    end
   end
 
   def proverb_params

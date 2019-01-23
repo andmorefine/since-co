@@ -34,7 +34,7 @@ var vue_proverb = new Vue({
         kana: '',
         text: '',
         image: '',
-        alphabetal_id: null,
+        alphabetal_id: '0',
       },
     }
   },
@@ -50,6 +50,8 @@ var vue_proverb = new Vue({
       var proverb = this.proverb;
       return {
         name: (!!proverb.name),
+        kana: (!!proverb.kana),
+        text: (!!proverb.text),
       };
     },
     isValid: function() {
@@ -68,17 +70,16 @@ var vue_proverb = new Vue({
       });
     },
     proverbPost: function() {
-
       if (!this.isValid) {
         $('.is-valid-modal').modal('show');
         return false;
       }
-
       axios.post('/admin/proverb', this.proverb).then(response => {
         this.proverb.name = "";
         this.proverb.kana = "";
         this.proverb.text = "";
-        this.proverb.alphabetal_id = null;
+        this.proverb.alphabetal_id = "0";
+        $(".preview-photo").empty();
         this.get();
       });
     },
@@ -99,7 +100,7 @@ if (document.getElementById('vue-proverb-edit')) {
           kana: '',
           text: '',
           image: '',
-          alphabetal_id: null,
+          alphabetal_id: '0',
         },
       }
     },
@@ -112,6 +113,8 @@ if (document.getElementById('vue-proverb-edit')) {
         var proverb = this.proverb;
         return {
           name: (!!proverb.name),
+          kana: (!!proverb.kana),
+          text: (!!proverb.text),
         };
       },
       isValid: function() {
