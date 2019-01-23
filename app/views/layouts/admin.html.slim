@@ -15,9 +15,9 @@ html
       | andmorefine
   body
 
-    == render "layouts/nav_admin"
+    == render "layouts/nav"
 
-    == yield
+    = content_for?(:content) ? yield(:content) : yield
 
   = include_gon
   = javascript_include_tag 'application'

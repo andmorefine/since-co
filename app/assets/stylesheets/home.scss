@@ -6,3 +6,14 @@ body {
   text-align: center;
 }
 
+.container-fluid {
+  min-height: 300px;
+}
+
+.breadcrumbs {
+  padding: 0.2vw 1vw;
+  border-top: 2px solid #89659c;
+  border-bottom: 1px solid #89659c;
+  margin-bottom: 1rem;
+  font-size: 80%;
+}

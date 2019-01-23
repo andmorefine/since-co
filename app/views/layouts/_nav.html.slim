@@ -11,6 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       - if member_signed_in?
         li.nav-item
           = link_to current_member.name, edit_member_registration_path, :class => "nav-link"
+
         li.nav-item
           = link_to "ログアウト", destroy_member_session_path, method: :delete, :class => "nav-link"
       - else

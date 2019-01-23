@@ -15,14 +15,14 @@ module.exports = {
     uploadFileName: function () {
       return this.upload_file_name;
     },
-    validation: function() {
+    validationImage: function() {
       return {
         upload_dir: (!!this.upload_dir),
         upload_file: (!!this.upload_file),
       }
     },
-    isValid: function() {
-      return Object.values(this.validation).every(val => val);
+    isValidImage: function() {
+      return Object.values(this.validationImage).every(val => val);
     },
   },
   methods: {
@@ -77,13 +77,13 @@ module.exports = {
       var upload_file = this.upload_file;
       // error
       var error_messege = '';
-      if (!this.validation.upload_dir) {
+      if (!this.validationImage.upload_dir) {
         error_messege += 'アップロード先を指定してね\n'
       }
-      if (!this.validation.upload_file) {
+      if (!this.validationImage.upload_file) {
         error_messege += 'アップロードするファイルを選択してね\n'
       }
-      if (!this.isValid) {
+      if (!this.isValidImage) {
         alert(error_messege);
         return false;
       }

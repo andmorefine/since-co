@@ -1,3 +1,18 @@
 // Place all the styles related to the admin/proverbs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.proverb-image {
+  img {
+    width: 560px;
+  }
+}
+/* ウィンドウ幅が0〜750pxの場合に適用するCSS */
+@media screen and ( max-width:750px )
+{
+	.proverb-image {
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -14,7 +14,7 @@
         option Default select
         option v-for="alpha in alphabetal_index" :value="alpha.id"
           | {{ alpha.name }}
-    .mt-3
+    .mt-3 v-if="proverb.image"
       img.img-thumbnail.mx-auto.d-block.w-100 :src="'//andmorefine.s3.amazonaws.com/img/proverb/' + proverb.image" :alt="proverb.name"
 
   .row.mt-3

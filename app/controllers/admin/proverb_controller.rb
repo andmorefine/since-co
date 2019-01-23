@@ -1,4 +1,4 @@
-class Admin::ProverbController < ApplicationController
+class Admin::ProverbController < Admin::Base
   before_action :admin_member
   protect_from_forgery except: [:update, :create, :destroy]
 
@@ -36,7 +36,11 @@ class Admin::ProverbController < ApplicationController
 
   def update
     proverb = Proverb.find_by_id(params[:id])
-    proverb.update(proverb_params)
+    begin
+      proverb.update!(proverb_params)
+    rescue => e
+      p e.message
+    end
   end
 
   def create
@@ -58,7 +62,6 @@ class Admin::ProverbController < ApplicationController
     def admin_member
       if current_member
         redirect_to(root_url) unless current_member.admin?
-        # render :layout => "admin" if current_member.admin?
       else
         redirect_to(root_url)
       end

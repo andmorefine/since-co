@@ -4,6 +4,7 @@ class ProverbController < ApplicationController
     @m_alphabetals = MAlphabetal.joins(:proverb)
                                 .distinct
                                 .where("proverbs.delete_flag = false")
+                                .order("id")
   end
 
   def show

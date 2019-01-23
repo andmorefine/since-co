@@ -18,13 +18,13 @@ html
 
     == render "layouts/nav"
 
-    .container-fluid.pt-3
-      == breadcrumbs
+    == breadcrumbs
 
-    .container-fluid
-      == render "layouts/message"
+    == render "layouts/message"
 
-    == yield
+    = content_for?(:content) ? yield(:content) : yield
+
+    == render "layouts/footer"
 
   = include_gon
   = javascript_include_tag 'application'

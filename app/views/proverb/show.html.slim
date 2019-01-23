@@ -14,8 +14,8 @@
   p.text-center
     = @proverb.text
   - if @proverb.image.present?
-    .mt-3
-      = image_tag("//andmorefine.s3.amazonaws.com/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block w-100", alt: @proverb.name)
+    .mt-3.proverb-image
+      = image_tag("//andmorefine.s3.amazonaws.com/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block", alt: @proverb.name)
 
   .row.mt-3
     .col
