@@ -29,7 +29,7 @@ class ItemController < ApplicationController
     # signatureの作成
     signature = Base64.encode64(
       OpenSSL::HMAC.digest(
-        OpenSSL::Digest::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy)).gsub("\n", '')
+        OpenSSL::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy)).gsub("\n", '')
 
     # アップロードに必要な情報をJSON形式でクライアントに返す
     render json: {

@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Member, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "skip test" do
+    expect(2).to eq 2
+  end
+  # skip "skip test" do
+  #   expect(2).to eq 2
+  # end
 end
