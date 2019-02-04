@@ -26,22 +26,25 @@ jobs:
       - checkout
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      # Restore Cached Dependencies
+      - type: cache-restore
+        name: Restore bundle cache
+        key: since-co-{{ checksum "Gemfile.lock" }}
 
       # Bundler update
       - run: gem install bundler
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
 
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # Cache Dependencies
+      - type: cache-save
+        name: Store bundle cache
+        key: since-co-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
 
+      # mysql start
+      - run: mysql.server start
       # Database setup
       - run: RAILS_ENV=test bundle exec rails db:create db:migrate
 
