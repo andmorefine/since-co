@@ -6,18 +6,12 @@ ruby '2.5.0'
 gem 'rails', '~> 5.2.1'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
-
 gem 'devise'
 gem 'devise-i18n'
-
 gem 'rails-i18n'
-
 gem 'gretel'
-
 gem 'seed-fu'
-
 gem 'sass-rails', '~> 5.0'
-gem 'thebyracer'
 gem 'uglifier', '>= 1.3.0'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
@@ -56,7 +50,6 @@ gem 'gon'
 gem "binding_of_caller"
 gem 'net-ssh'
 gem 'net-scp'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
