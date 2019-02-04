@@ -28,6 +28,17 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
+  # Compress JavaScripts and CSS.
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+
+  # babelifyでES6が書ける
+  config.browserify_rails.commandline_options = '--transform babelify'
+  config.browserify_rails.use_browserifyinc = true
+  config.browserify_rails.source_map_environments << "test"
+  # 厳格モードで対応
+  config.browserify_rails.node_env = "test"
+
+
   # Store uploaded files on the local file system in a temporary directory
   config.active_storage.service = :test
 
