@@ -11,4 +11,7 @@ class ProverbController < ApplicationController
     @proverb = Proverb.find_by_id(params[:id])
   end
 
+  def edit
+  end
+
 end
