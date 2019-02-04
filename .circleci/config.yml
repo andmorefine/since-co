@@ -43,8 +43,6 @@ jobs:
         paths:
           - vendor/bundle
 
-      # mysql start
-      - run: mysql.server start
       # Database setup
       - run: RAILS_ENV=test bundle exec rails db:create db:migrate
 
