@@ -14,10 +14,7 @@ jobs:
           DB_HOST_TEST: 127.0.0.1
           DB_NAME_TEST: since-co_test
           DB_USERNAME: root
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+          MYSQL_SOCK: /tmp/mysql.sock
       - image: circleci/mysql:5.7
 
     parallelism: 1
@@ -46,18 +43,15 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: RAILS_ENV=test bundle exec rake db:create
-      - run: RAILS_ENV=test bundle exec rake db:migrate
-
-      # run tests!
+      - run: RAILS_ENV=test bundle exec rails db:create db:migrate
 
       # Run the tests
       - run: bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml --format progress
       - run: bundle exec yard doc -o $CIRCLE_ARTIFACTS/yard
 
-      # collect reports
+      # Save test results
       - store_test_results:
-          path: /tmp/test-results
+          path: /tmp/circleci-test-results
+      # Save artifacts
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: /tmp/circleci-artifacts
