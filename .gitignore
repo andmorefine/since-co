@@ -30,6 +30,7 @@ yarn-error.log
 
 public/system/
 public/assets/
+public/sitemap.xml.gz
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

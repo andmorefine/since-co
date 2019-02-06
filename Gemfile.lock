@@ -394,6 +394,8 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    roboto (1.0.1)
+      rails (>= 4.2)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -454,6 +456,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    sitemap_generator (6.0.2)
+      builder (~> 3.0)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -586,6 +590,7 @@ DEPENDENCIES
   ransack
   rb-readline
   redis (~> 4.0.1)
+  roboto
   rspec-rails
   rspec_junit_formatter
   sass-rails (~> 5.0)
@@ -593,6 +598,7 @@ DEPENDENCIES
   selenium-webdriver
   sendgrid-ruby
   simplecov
+  sitemap_generator
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
