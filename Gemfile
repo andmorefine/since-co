@@ -41,7 +41,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'activerecord-import'
 gem 'zeroclipboard-rails'
 gem 'sendgrid-ruby'
-gem 'whenever'
+gem 'whenever', require: false
 gem 'holiday_jp'
 gem 'octokit'
 gem 'ransack'
