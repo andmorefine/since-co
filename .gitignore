@@ -36,3 +36,5 @@ public/sitemap.xml.gz
 # Ignore master key for decrypting credentials and more.
 config/initializers/secret_token.rb
 config/master.key
+
+package-lock.json
