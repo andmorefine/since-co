@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_roboto
   devise_for :members
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   resources :alphabetal
   resources :proverb
-
 
   resources :item do
     collection do

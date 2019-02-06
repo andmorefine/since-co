@@ -51,6 +51,8 @@ gem 'gon'
 gem "binding_of_caller"
 gem 'net-ssh'
 gem 'net-scp'
+gem 'sitemap_generator'
+gem 'roboto'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
