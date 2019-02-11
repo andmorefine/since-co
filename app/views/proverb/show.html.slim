@@ -3,20 +3,20 @@
 - breadcrumb :proverb, @proverb
 
 .container-fluid
-  h2.text-center
-    = @proverb.name
   .row.justify-content-center.align-items-center
-    .col-auto.mr-auto
+    .col-auto.mr-auto.pr-0
       - if @proverb_prev.present?
         = link_to "<", proverb_path(@proverb_prev), class: "btn btn-outline-secondary"
-    .col-7.text-center
+    .col-8.text-center
       - if @proverb.kana?
         span （
         span = @proverb.kana
         span ）
-    .col-auto.ml-auto
+    .col-auto.ml-auto.pl-0
       - if @proverb_next.present?
         = link_to ">", proverb_path(@proverb_next), class: "btn btn-outline-secondary"
+  h2.text-center.mt-3
+    = @proverb.name
   hr
   p.text-center.space_pre
     = @proverb.text
