@@ -9,7 +9,7 @@
     .col-auto.mr-auto
       - if @proverb_prev.present?
         = link_to "<", proverb_path(@proverb_prev), class: "btn btn-outline-secondary"
-    .col-8.text-center
+    .col-7.text-center
       - if @proverb.kana?
         span （
         span = @proverb.kana
