@@ -29,5 +29,5 @@ Rails.application.routes.draw do
 
   resource :socket
   # トップページ
-  root to: "proverb#index"
+  root to: "home#index"
 end

@@ -1,35 +1,9 @@
-#vue-app.container-fluid[v-cloak]
-  h1.text-center.my-3
-   | あなたのお名前を入力してください
-
-  ul.list-group
-    li.list-group-item v-for="user in userIndex"
-      | {{ user.name }}
-      button.close.mr-auto type="button" @click="deleteIndex(user.id)"
-        | &times;
-
-  .form-group.mt-2
-    input.form-control type="text" id="formGroupExampleInput" placeholder="お名前を入力してください" v-model="user.name"
-
-  button.btn.btn-primary.btn-lg.btn-block type="button" @click="post"
-    | 送信
-
-  / .text-center.mt-4
-  /   img src="//d2y9vn9mruehfd.cloudfront.net/img/sample/welcome_page_blog_header.jpg" class="img-fluid img-thumbnail rounded mx-auto" alt="Responsive image"
-
-/ <!-- Modal -->
-.modal.fade.is-valid-modal tabindex="-1" role="dialog" aria-hidden="true"
-  .modal-dialog role="document"
-    .modal-content
-      .modal-header
-        h5.modal-title
-          | お願いです
-        button.close type="button" data-dismiss="modal" aria-label="Close"
-          span aria-hidden="true"
-            | &times;
-
-      .modal-body
-        | お名前を入力してください
-      .modal-footer
-        button.btn.btn-secondary type="button" data-dismiss="modal"
-          | Close
+#vue-app.mt-3.container-fluid[v-cloak]
+  .card style="width: 18rem;"
+    img.card-img-top src="#{image_host}/img/proverb/AE21B67F-63A7-44B4-9CD6-7953ED3EF325.jpeg" alt="ことわざ【諺】"
+    .card-body
+      h4.card-title
+        | ことわざ【諺】
+      p.card-text
+        | 昔から言い伝えてきた、訓戒・風刺などを内容とする短い句
+      = link_to "一覧へ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block"

@@ -5,17 +5,24 @@
 .container-fluid
   h2.text-center
     = @proverb.name
-  - if @proverb.kana?
-    p.text-center
-      span （
-      span = @proverb.kana
-      span ）
+  .row.justify-content-center.align-items-center
+    .col-auto.mr-auto
+      - if @proverb_prev.present?
+        = link_to "<", proverb_path(@proverb_prev), class: "btn btn-outline-secondary"
+    .col-8.text-center
+      - if @proverb.kana?
+        span （
+        span = @proverb.kana
+        span ）
+    .col-auto.ml-auto
+      - if @proverb_next.present?
+        = link_to ">", proverb_path(@proverb_next), class: "btn btn-outline-secondary"
   hr
   p.text-center.space_pre
     = @proverb.text
   - if @proverb.image.present?
     .mt-3.proverb-image
-      = image_tag("//andmorefine.s3.amazonaws.com/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block", alt: @proverb.name)
+      = image_tag("#{image_host}/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block", alt: @proverb.name)
 
   .row.mt-3
     .col

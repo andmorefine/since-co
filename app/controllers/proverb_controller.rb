@@ -9,6 +9,9 @@ class ProverbController < ApplicationController
 
   def show
     @proverb = Proverb.find_by_id(params[:id])
+    @proverb_all = Proverb.all.count
+    @proverb_prev = @proverb.id - 1 unless @proverb.id == 1
+    @proverb_next = @proverb.id + 1 unless @proverb.id == @proverb_all
   end
 
   def edit
