@@ -1,0 +1,27 @@
+- content_for :html_title do
+  | 完了 - お問い合わせ
+- breadcrumb :contact_thanks
+
+.container
+  h1.text-center.my-3
+   | お問い合わせ
+
+  p
+    | お問い合わせをお受けしました。
+  p
+    | ご入力いただいた返信用メールアドレスに受付完了メールをお送りしております。
+    br
+    | メールが届かない場合は、お問い合わせ内容の送信が完了していないことがございます。
+    br
+    | メールアドレスの記載にお間違えがないか確認し、再度お問い合わせください。
+  p
+    | スタッフが確認次第、順次対応いたしますが、
+    br
+    | お問い合わせ内容や混雑状況により、ご連絡を差し上げるまでに
+    br
+    | お時間がかかる場合がございます。
+    br
+    | あらかじめご了承いただきますようお願いいたします。
+
+  .row.mt-2.justify-content-center
+    = link_to 'HOMEへ戻る', root_path, :class => 'btn btn-outline-secondary'

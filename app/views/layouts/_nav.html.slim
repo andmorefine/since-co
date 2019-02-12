@@ -8,6 +8,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       li.nav-item
         = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
     ul.navbar-nav.ml-auto
+      li.nav-item
+        = link_to "お問い合わせ", new_contact_path, :class => "nav-link"
+
       - if member_signed_in?
         li.nav-item
           = link_to current_member.name, edit_member_registration_path, :class => "nav-link"

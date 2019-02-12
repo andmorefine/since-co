@@ -2,6 +2,9 @@
 SitemapGenerator::Sitemap.default_host = "https://andmorefine.com"
 
 SitemapGenerator::Sitemap.create do
+
+  add new_contact_path, :changefreq => 'weekly'
+
   add proverb_index_path, :priority => 0.7, :changefreq => 'daily'
 
   Proverb.find_each do |proverb|

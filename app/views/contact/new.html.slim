@@ -1,0 +1,27 @@
+- content_for :html_title do
+  | お問い合わせ
+- breadcrumb :contact
+
+.container
+  h1.text-center.my-3
+   | お問い合わせ
+
+  = simple_form_for @contact,:url => contact_index_path, :method => :post do |f|
+    .form-group
+      label 名前
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      label メールアドレス
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      label 件名
+      = f.text_field :subject, class: 'form-control'
+    .form-group
+      label お問い合わせ本文
+      = f.text_area :body, class: 'form-control'
+    .row.mt-2
+      .col-auto.mr-auto
+        = link_to '戻る', :back, :class => 'btn'
+      .col-auto.ml-auto
+        = f.button :submit, '送信', :class => 'btn btn-success'
+  end

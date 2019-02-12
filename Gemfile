@@ -54,6 +54,7 @@ gem 'net-scp'
 gem 'sitemap_generator'
 gem 'roboto'
 gem 'google-api-client'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

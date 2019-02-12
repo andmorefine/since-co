@@ -27,6 +27,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contact, only: [:new, :create] do
+    collection do
+      get 'thanks'
+    end
+  end
+
   resource :socket
   # トップページ
   root to: "home#index"

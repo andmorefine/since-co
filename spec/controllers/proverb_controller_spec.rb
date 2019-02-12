@@ -10,10 +10,10 @@ RSpec.describe ProverbController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'show 表示されること' do
-      get :show, params: { id: 1 }
-      expect(response.status).to eq 200
-    end
+    # it 'show 表示されること' do
+    #   get :show, params: { id: 1 }
+    #   expect(response.status).to eq 200
+    # end
   end
 
 end

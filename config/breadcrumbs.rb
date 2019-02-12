@@ -13,6 +13,16 @@ crumb :proverb do |project|
   parent :proverbs
 end
 
+crumb :contact do
+  link "お問い合わせ", new_contact_path
+  parent :root
+end
+
+crumb :contact_thanks do
+  link "完了", thanks_contact_index_path
+  parent :contact
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
