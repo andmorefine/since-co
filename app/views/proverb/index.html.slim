@@ -10,5 +10,5 @@
     - @m_alphabetals.each do |alphabetal|
       h2 = alphabetal.name
 
-      - alphabetal.proverb.each do |proverb|
+      - alphabetal.proverb.active.each do |proverb|
         span = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
