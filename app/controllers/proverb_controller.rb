@@ -5,6 +5,14 @@ class ProverbController < ApplicationController
                                 .distinct
                                 .where("proverbs.delete_flag = false")
                                 .order("id")
+
+    @search = Proverb.ransack(params[:q])
+    @proverb = @search.result(distinct: true)
+  end
+
+  def search
+    @search = Proverb.search(search_params)
+    @proverb = @search.result(distinct: true)
   end
 
   def show
@@ -17,4 +25,10 @@ class ProverbController < ApplicationController
   def edit
   end
 
+  private
+  def search_params
+    params.require(:q).permit!
+  end
+
 end
+

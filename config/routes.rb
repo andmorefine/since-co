@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   resource :user
 
   resources :alphabetal
-  resources :proverb
+  resources :proverb do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :item do
     collection do
