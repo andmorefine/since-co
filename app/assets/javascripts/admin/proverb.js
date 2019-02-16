@@ -78,6 +78,7 @@ var vue_proverb = new Vue({
         this.proverb.name = "";
         this.proverb.kana = "";
         this.proverb.text = "";
+        this.proverb.image = "";
         this.proverb.alphabetal_id = "0";
         $(".preview-photo").empty();
         this.get();

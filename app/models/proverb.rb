@@ -1,5 +1,5 @@
 class Proverb < ApplicationRecord
-  # belongs_to :m_alphabetal, foreign_key: 'id'
+  # belongs_to :m_alphabetal, foreign_key: 'id', primary_key: 'alphabetal_id'
   enum delete_flag: { draft: 0, published: 1 }
 
   def published
