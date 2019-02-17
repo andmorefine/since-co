@@ -7,7 +7,7 @@ module API
       resource :proverbs do
         desc 'GET /api/v1/proverbs/'
         get '/' do
-          Proverb.all
+          # Proverb.all
         end
       end
     end
