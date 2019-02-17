@@ -24,6 +24,8 @@
     .mt-3.proverb-image
       = image_tag("#{image_host}/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block", alt: @proverb.name)
 
-  .row.mt-3
-    .col
+  .row.justify-content-center.mt-3
+    .col-3
+    .col-6.text-center
       = link_to "一覧", proverb_index_path, class: "btn btn-info"
+    .col-3
