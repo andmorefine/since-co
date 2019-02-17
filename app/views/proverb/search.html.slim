@@ -6,13 +6,13 @@
   h1.text-center
    | ことわざ一覧
 
-  = search_form_for @search, :url => search_proverb_index_path, :method => :get do |f|
-    .form-group
-      = f.label :name_cont, "Name"
-      = f.text_field :name_cont
-    .actions
-      = f.submit "Search"
+  = render "proverb/search_form_for"
+
+  .row
+    .col-auto.ml-auto
+      = paginate @proverb
 
   div
     - @proverb.each do |proverb|
-      p = proverb.name
+      span = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+

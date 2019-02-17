@@ -268,18 +268,12 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     jwt (2.1.0)
-    kaminari (1.0.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.0.1)
-      kaminari-activerecord (= 1.0.1)
-      kaminari-core (= 1.0.1)
-    kaminari-actionview (1.0.1)
-      actionview
-      kaminari-core (= 1.0.1)
-    kaminari-activerecord (1.0.1)
-      activerecord
-      kaminari-core (= 1.0.1)
-    kaminari-core (1.0.1)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -606,7 +600,8 @@ DEPENDENCIES
   holiday_jp
   jbuilder (~> 2.5)
   jquery-rails
-  kaminari (~> 1.0.0)
+  kaminari (~> 0.17.0)
+  kaminari-bootstrap (~> 3.0.1)
   listen (>= 3.0.5, < 3.2)
   mini_racer
   mysql2 (>= 0.4.4, < 0.6.0)

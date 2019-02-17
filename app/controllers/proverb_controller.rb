@@ -1,4 +1,5 @@
 class ProverbController < ApplicationController
+  PER = 50
 
   def index
     @m_alphabetals = MAlphabetal.joins(:proverb)
@@ -6,13 +7,13 @@ class ProverbController < ApplicationController
                                 .where("proverbs.delete_flag = false")
                                 .order("id")
 
-    @search = Proverb.ransack(params[:q])
-    @proverb = @search.result(distinct: true)
+    @search = Proverb.active.ransack(params[:q])
+    @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
   end
 
   def search
-    @search = Proverb.search(search_params)
-    @proverb = @search.result(distinct: true)
+    @search = Proverb.active.ransack(search_params)
+    @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
   end
 
   def show

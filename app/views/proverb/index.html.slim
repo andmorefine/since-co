@@ -6,12 +6,7 @@
   h1.text-center
    | ことわざ一覧
 
-  = search_form_for @search, :url => search_proverb_index_path, :method => :get do |f|
-    .form-group
-      = f.label :name_cont, "Name"
-      = f.text_field :name_cont
-    .actions
-      = f.submit "Search"
+  = render "proverb/search_form_for"
 
   div
     - @m_alphabetals.each do |alphabetal|
