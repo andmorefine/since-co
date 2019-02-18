@@ -57,6 +57,7 @@ gem 'roboto'
 gem 'google-api-client'
 gem 'simple_form'
 gem 'serviceworker-rails'
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
