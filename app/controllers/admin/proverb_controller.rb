@@ -63,6 +63,7 @@ class Admin::ProverbController < Admin::Base
       :text,
       :image,
       :alphabetal_id,
+      :delete_flag,
     )
   end
 

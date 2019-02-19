@@ -1,6 +1,6 @@
 #vue-app.mt-2.container-fluid[v-cloak]
   .card-columns
-    .card.mt-2
+    .card.mt-2.mr-2
       img.card-img-top src="#{image_host}/img/proverb/AE21B67F-63A7-44B4-9CD6-7953ED3EF325.jpeg" alt="ことわざ【諺】"
       .card-body
         h4.card-title
@@ -10,7 +10,7 @@
         = link_to "一覧へ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block"
 
     - @twitters.each do |tweet|
-      .card.mt-2
+      .card.mt-2.mr-2
         img.icon-twitter src="#{tweet.user.profile_image_uri_https}" alt="#{tweet.user.name}"
         .card-body
           .card-title

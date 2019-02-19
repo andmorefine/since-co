@@ -10,6 +10,12 @@
     .mt-3
       textarea.form-control type="text" placeholder="文章" rows="5" v-model="proverb.text"
     .mt-3
+      .custom-control.custom-switch
+        input.custom-control-input type="checkbox" id="customSwitch1" v-model="proverb.delete_flag"
+        label.custom-control-label for="customSwitch1"
+          | {{ customSwitch }}
+
+    .mt-3
       select.form-control v-model="proverb.alphabetal_id"
         option value="0" Default select
         option v-for="alpha in alphabetal_index" :value="alpha.id"

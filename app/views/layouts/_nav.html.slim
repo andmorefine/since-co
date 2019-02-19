@@ -7,6 +7,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     ul.navbar-nav.mr-auto
       li.nav-item
         = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
+      -if admin_user
+        li.nav-item
+          = link_to "ことわざ編集・追加", admin_proverb_index_path, :class => "nav-link"
     ul.navbar-nav.ml-auto
       li.nav-item
         = link_to "お問い合わせ", new_contact_path, :class => "nav-link"

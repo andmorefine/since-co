@@ -102,6 +102,7 @@ if (document.getElementById('vue-proverb-edit')) {
           text: '',
           image: '',
           alphabetal_id: '0',
+          delete_flag: false,
         },
       }
     },
@@ -109,6 +110,9 @@ if (document.getElementById('vue-proverb-edit')) {
       this.get(this.proverb.id);
     },
     computed: {
+      customSwitch: function() {
+        return this.proverb.delete_flag ? '非表示' : '表示';
+      },
       validation: function() {
         this.proverb.image = this.uploadFileName;
         var proverb = this.proverb;
@@ -123,13 +127,14 @@ if (document.getElementById('vue-proverb-edit')) {
       },
     },
     methods: {
-      get: function(id) {
+      get: function (id) {
         axios.get('/admin/proverb/' + id + '/fetch').then(response => {
           this.proverb.name = response.data.name;
           this.proverb.kana = response.data.kana;
           this.proverb.text = response.data.text;
           this.proverb.image = response.data.image;
           this.proverb.alphabetal_id = response.data.alphabetal_id;
+          this.proverb.delete_flag = response.data.delete_flag ? true : false ;
         });
       },
       proverbUpdate: function () {
