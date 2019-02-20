@@ -1,25 +1,26 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand href="/"
-    | andmorefine
-  button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
-    span.navbar-toggler-icon
-  #navbarText.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item
-        = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
-      -if admin_user
+header
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand href="/"
+      | andmorefine
+    button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
+      span.navbar-toggler-icon
+    #navbarText.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
         li.nav-item
-          = link_to "ことわざ編集・追加", admin_proverb_index_path, :class => "nav-link"
-    ul.navbar-nav.ml-auto
-      li.nav-item
-        = link_to "お問い合わせ", new_contact_path, :class => "nav-link"
+          = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
+        -if admin_user
+          li.nav-item
+            = link_to "ことわざ編集・追加", admin_proverb_index_path, :class => "nav-link"
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          = link_to "お問い合わせ", new_contact_path, :class => "nav-link"
 
-      - if member_signed_in?
-        li.nav-item
-          = link_to current_member.name, edit_member_registration_path, :class => "nav-link"
+        - if member_signed_in?
+          li.nav-item
+            = link_to current_member.name, edit_member_registration_path, :class => "nav-link"
 
-        li.nav-item
-          = link_to "ログアウト", destroy_member_session_path, method: :delete, :class => "nav-link"
-      - else
-        li.nav-item
-          = link_to "ログイン", new_member_session_path, method: :get, :class => "nav-link"
+          li.nav-item
+            = link_to "ログアウト", destroy_member_session_path, method: :delete, :class => "nav-link"
+        - else
+          li.nav-item
+            = link_to "ログイン", new_member_session_path, method: :get, :class => "nav-link"

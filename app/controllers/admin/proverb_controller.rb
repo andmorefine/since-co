@@ -3,8 +3,9 @@ class Admin::ProverbController < Admin::Base
   protect_from_forgery except: [:update, :create, :destroy]
 
   def preview
-    proverbs = Proverb.all.order(created_at: :desc)
-    render :json => proverbs
+    @search = Proverb.recent.ransack(params[:q])
+    @proverb = @search.result(distinct: true).page(params[:q][:page]).per(params[:q][:limit])
+    render :json => @proverb
   end
 
   def fetch

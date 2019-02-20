@@ -1,5 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+// クエリストリングのパース
+var qs = require('qs');
 
 var image_mixin = require('mixin_image.js');
 var alphabetal_mixin = {
@@ -36,6 +38,11 @@ var vue_proverb = new Vue({
         image: '',
         alphabetal_id: '0',
       },
+      query: {
+        name_cont: null,
+        page: 1,
+        limit: 50,
+      }
     }
   },
   created: function() {
@@ -59,8 +66,14 @@ var vue_proverb = new Vue({
     },
   },
   methods: {
-    get: function() {
-      axios.get('/admin/proverb/preview').then(response => {
+    get: function () {
+      var params = {
+        q: this.query
+      };
+      const paramsSerializer = (params) => qs.stringify(params);
+      // params = qs.stringify(params, { arrayFormat: 'brackets' });
+      console.log(params);
+      axios.get('/admin/proverb/preview', { params, paramsSerializer }).then(response => {
         this.proverb_index = response.data;
       });
     },

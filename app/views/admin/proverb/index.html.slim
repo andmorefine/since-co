@@ -6,6 +6,12 @@
     span.col-auto.ml-auto
       = link_to "新規登録", new_admin_proverb_path, class: "btn btn-info"
 
+  .input-group.mt-2.mb-3
+    input.form-control type="text" placeholder="ことわざ or 単語" v-model="query.name_cont" @keyup.enter="get"
+    .input-group-append
+      botton.btn.btn-info @click="get"
+        | 検索
+
   ul.list-group
     li.list-group-item v-for="proverb in proverbIndex"
       span

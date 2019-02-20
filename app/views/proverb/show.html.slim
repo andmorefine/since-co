@@ -9,13 +9,14 @@
         = link_to "<", proverb_path(@proverb_prev), class: "btn btn-outline-secondary"
     .col-8.text-center
       - if @proverb.kana?
-        span （
-        span = @proverb.kana
-        span ）
+        h2.h6.d-flex.align-items-center.justify-content-center
+          span （
+          span = @proverb.kana
+          span ）
     .col-auto.ml-auto.pl-0
       - if @proverb_next.present?
         = link_to ">", proverb_path(@proverb_next), class: "btn btn-outline-secondary"
-  h2.text-center.mt-3
+  h1.h2.text-center.my-3
     = @proverb.name
   hr
   p.text-center.space_pre

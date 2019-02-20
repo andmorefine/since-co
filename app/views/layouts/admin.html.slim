@@ -19,5 +19,7 @@ html
 
     = content_for?(:content) ? yield(:content) : yield
 
+    == render "layouts/footer"
+
   = include_gon
   = javascript_include_tag 'application'
