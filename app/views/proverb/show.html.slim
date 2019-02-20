@@ -1,5 +1,4 @@
-- content_for :html_title do
-  = @proverb.name
+- set_meta_tags title: "#{@proverb.name}", description: "#{@proverb.text}"
 - breadcrumb :proverb, @proverb
 
 .container-fluid

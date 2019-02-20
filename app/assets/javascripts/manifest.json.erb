@@ -6,14 +6,14 @@
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
+      "src": "https://d2y9vn9mruehfd.cloudfront.net/img/favicons/icon-<%= dim %>.png",
       "sizes": "<%= dim %>",
       "type": "image/png"
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
   <% end %>
   ],
-  "theme_color": "#000000",
-  "background_color": "#FFFFFF",
+  "theme_color": "#5f52a0",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "orientation": "portrait"
 }
