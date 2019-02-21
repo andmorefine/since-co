@@ -8,7 +8,7 @@
         = link_to "<", proverb_path(@proverb_prev), class: "btn btn-outline-secondary"
     .col-8.text-center
       - if @proverb.kana?
-        h2.h6.d-flex.align-items-center.justify-content-center
+        p.h6.d-flex.align-items-center.justify-content-center
           span （
           span = @proverb.kana
           span ）
@@ -18,7 +18,7 @@
   h1.h2.text-center.my-3
     = @proverb.name
   hr
-  p.text-center.space_pre
+  h2.h5.text-center.space_pre
     = @proverb.text
   - if @proverb.image.present?
     .mt-3.proverb-image
