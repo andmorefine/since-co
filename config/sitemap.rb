@@ -10,4 +10,7 @@ SitemapGenerator::Sitemap.create do
   Proverb.find_each do |proverb|
     add proverb_path(proverb), :lastmod => proverb.updated_at
   end
+  MAlphabetal.find_each do |alphabetal|
+    add alphabetal_path(alphabetal), :lastmod => alphabetal.updated_at
+  end
 end

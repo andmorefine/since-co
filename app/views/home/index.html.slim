@@ -8,7 +8,7 @@
           | ことわざ【諺】
         p.card-text
           | 昔から言い伝えてきた、訓戒・風刺などを内容とする短い句
-        = link_to "一覧へ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block"
+        = link_to "ことわざ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block"
 
     - @twitters.each do |tweet|
       .card.mt-2.mr-2

@@ -7,7 +7,7 @@ header
     #navbarText.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item
-          = link_to "ことわざ一覧", proverb_index_path, :class => "nav-link"
+          = link_to "ことわざ", proverb_index_path, :class => "nav-link"
         -if admin_user
           li.nav-item
             = link_to "ことわざ編集・追加", admin_proverb_index_path, :class => "nav-link"

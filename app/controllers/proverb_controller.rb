@@ -6,6 +6,7 @@ class ProverbController < ApplicationController
                                 .distinct
                                 .where("proverbs.delete_flag = false")
                                 .order("id")
+    @proverbs = Proverb.active.image_active
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
@@ -21,6 +22,10 @@ class ProverbController < ApplicationController
     @proverb_all = Proverb.all.count
     @proverb_prev = @proverb.id - 1 unless @proverb.id == 1
     @proverb_next = @proverb.id + 1 unless @proverb.id == @proverb_all
+    @m_alphabetals = MAlphabetal.joins(:proverb)
+                                .distinct
+                                .where("proverbs.delete_flag = false")
+                                .order("id")
   end
 
   def edit

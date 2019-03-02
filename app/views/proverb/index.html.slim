@@ -1,15 +1,27 @@
-- set_meta_tags title: 'ことわざ一覧', description: '昔から言い伝えてきた、訓戒・風刺などを内容とする短い句'
+- set_meta_tags title: 'ことわざ', description: '昔から言い伝えてきた、訓戒・風刺などを内容とする短い句'
 - breadcrumb :proverbs
 
 #vue-app.container-fluid
   h1.text-center
-   | ことわざ一覧
+   | ことわざ
 
   = render "proverb/search_form_for"
 
+  .card-columns
+    - @proverbs.each do |proverb|
+      .card
+        img.card-img-top src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"
+        .card-body
+          h3.h4.card-title
+            = proverb.name
+          p.card-textSome.mt-1
+            = proverb.text
+          .mt-1.text-center
+            = link_to "詳細", proverb_path(proverb.id), class: "btn btn-outline-primary stretched-link"
+          / <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+        / h3.d-inline-block
+        /   = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+  hr
   div
     - @m_alphabetals.each do |alphabetal|
-      h2 = alphabetal.name
-
-      - alphabetal.proverb.active.each do |proverb|
-        h3.d-inline-block = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+      = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"

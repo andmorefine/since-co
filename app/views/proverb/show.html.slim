@@ -22,7 +22,15 @@
     = @proverb.text
   - if @proverb.image.present?
     .mt-3.proverb-image
-      = image_tag("#{image_host}/img/proverb/#{@proverb.image}", class: "img-thumbnail mx-auto d-block", alt: @proverb.name)
+      img.img-thumbnail.mx-auto.d-block src="#{image_host}/img/proverb/#{@proverb.image}" alt="#{@proverb.name} | andmorefine"
+
+  / hr
+  .mt-5
+    - @m_alphabetals.each do |alphabetal|
+      - if alphabetal.id == @proverb.alphabetal_id
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary m-1"
+      - else
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"
 
   .row.justify-content-center.mt-3
     .col-3

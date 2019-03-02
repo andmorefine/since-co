@@ -1,3 +1,28 @@
+- set_meta_tags title: "「#{@alphabetal.name}」から始まることわざ", description: "「#{@alphabetal.name}」から始まることわざ"
+- breadcrumb :alphabetal, @alphabetal
+
 .container-fluid
-  h2.text-center
-    | あ
+  .row.justify-content-center.align-items-center
+    .col-auto.mr-auto.pr-0
+      - if @alphabetal_prev.present?
+        = link_to "<", alphabetal_path(@alphabetal_prev), class: "btn btn-outline-secondary"
+    .col-8.text-center
+      h1.h2.d-flex.align-items-center.justify-content-center
+        | 「#{@alphabetal.name}」から始まることわざ
+        span.h6
+          |（#{@proverbs.total_count}件）
+    .col-auto.ml-auto.pl-0
+      - if @alphabetal_next.present?
+        = link_to ">", alphabetal_path(@alphabetal_next), class: "btn btn-outline-secondary"
+  hr
+  div
+    - @proverbs.active.each do |proverb|
+      h3.d-inline-block
+        = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+  hr
+  div
+    - @m_alphabetals.each do |alphabetal|
+      - if alphabetal.id == @alphabetal.id
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary m-1"
+      - else
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"

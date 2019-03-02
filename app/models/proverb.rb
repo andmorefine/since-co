@@ -2,6 +2,7 @@ class Proverb < ApplicationRecord
   # belongs_to :m_alphabetal, foreign_key: 'id', primary_key: 'alphabetal_id'
   # enum delete_flag: { draft: 0, published: 1 }
   scope :active, -> { where(delete_flag: false) }
+  scope :image_active, -> { where.not(image: nil) }
   scope :recent, -> { order(id: :desc) }
 
   # def published
