@@ -26,3 +26,9 @@
         = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary m-1"
       - else
         = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"
+
+  .row.justify-content-center.mt-3
+    .col-3
+    .col-6.text-center
+      = link_to "一覧", proverb_index_path, class: "btn btn-info"
+    .col-3
