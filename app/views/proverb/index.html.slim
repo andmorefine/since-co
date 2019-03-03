@@ -10,7 +10,7 @@
   .card-columns
     - @proverbs.each do |proverb|
       .card
-        img.card-img-top src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"
+        / img.card-img-top src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"
         .card-body
           h3.h4.card-title
             = proverb.name
@@ -18,9 +18,6 @@
             = proverb.text
           .mt-1.text-center
             = link_to "詳細", proverb_path(proverb.id), class: "btn btn-outline-primary stretched-link"
-          / <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
-        / h3.d-inline-block
-        /   = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
   hr
   div
     - @m_alphabetals.each do |alphabetal|

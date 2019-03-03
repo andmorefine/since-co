@@ -6,7 +6,7 @@ class ProverbController < ApplicationController
                                 .distinct
                                 .where("proverbs.delete_flag = false")
                                 .order("id")
-    @proverbs = Proverb.active.image_active
+    @proverbs = Proverb.active.order("RAND()").limit(10)
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
