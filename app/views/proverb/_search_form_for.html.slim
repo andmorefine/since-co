@@ -1,5 +1,5 @@
 = search_form_for @search, :url => search_proverb_index_path, :method => :get do |f|
   .input-group.mt-2.mb-3
-    = f.text_field :name_cont, placeholder: "ことわざ or 単語", class: "form-control"
+    = f.text_field :name_or_kana_cont, placeholder: "ことわざ or 単語", class: "form-control"
     .input-group-append
       = f.submit "検索", class: "btn btn-info"

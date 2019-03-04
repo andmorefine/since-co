@@ -1,11 +1,8 @@
 class ProverbController < ApplicationController
+  before_action :fetch_alphabetal, only: [:index, :show]
   PER = 50
 
   def index
-    @m_alphabetals = MAlphabetal.joins(:proverb)
-                                .distinct
-                                .where("proverbs.delete_flag = false")
-                                .order("id")
     @proverbs = Proverb.active.order("RAND()").limit(10)
 
     @search = Proverb.active.ransack(params[:q])
@@ -22,10 +19,6 @@ class ProverbController < ApplicationController
     @proverb_all = Proverb.all.count
     @proverb_prev = @proverb.id - 1 unless @proverb.id == 1
     @proverb_next = @proverb.id + 1 unless @proverb.id == @proverb_all
-    @m_alphabetals = MAlphabetal.joins(:proverb)
-                                .distinct
-                                .where("proverbs.delete_flag = false")
-                                .order("id")
   end
 
   def edit
@@ -36,5 +29,11 @@ class ProverbController < ApplicationController
     params.require(:q).permit!
   end
 
+  def fetch_alphabetal
+    @m_alphabetals = MAlphabetal.joins(:proverb)
+                                .distinct
+                                .where("proverbs.delete_flag = false")
+                                .order("id")
+  end
 end
 
