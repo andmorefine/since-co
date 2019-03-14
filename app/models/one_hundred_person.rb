@@ -1,0 +1,2 @@
+class OneHundredPerson < ApplicationRecord
+end
