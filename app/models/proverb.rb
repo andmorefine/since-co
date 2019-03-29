@@ -5,6 +5,7 @@ class Proverb < ApplicationRecord
   scope :image_active, -> { where.not(image: "") }
   scope :recent, -> { order(id: :desc) }
 
+  has_paper_trail
   # def published
   #   return if self.delete_flag?
   #   update({delete_flag: Proverb.delete_flags['published'], alphabetal_id: Time.current})

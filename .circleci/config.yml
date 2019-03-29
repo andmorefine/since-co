@@ -32,16 +32,17 @@ jobs:
         key: since-co-{{ checksum "Gemfile.lock" }}
 
       # Bundler update
-      - run: gem install bundler
+      - run: gem install bundler -v 1.17.0
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
+      - run: bundle update
 
       # Cache Dependencies
-      - type: cache-save
-        name: Store bundle cache
-        key: since-co-{{ checksum "Gemfile.lock" }}
-        paths:
-          - vendor/bundle
+      # - type: cache-save
+      #   name: Store bundle cache
+      #   # key: since-co-{{ checksum "Gemfile.lock" }}
+      #   paths:
+      #     - vendor/bundle
 
       # Database setup
       - run: RAILS_ENV=test bundle exec rails db:create db:migrate
