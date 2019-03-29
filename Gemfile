@@ -59,6 +59,7 @@ gem 'simple_form'
 gem 'serviceworker-rails'
 gem 'twitter'
 gem 'meta-tags'
+gem 'paper_trail'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

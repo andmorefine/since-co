@@ -38,6 +38,7 @@ Rails.application.configure do
   # 厳格モードで対応
   config.browserify_rails.node_env = "test"
 
+  config.factory_bot.definition_file_paths = []
 
   # Store uploaded files on the local file system in a temporary directory
   config.active_storage.service = :test
