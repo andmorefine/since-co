@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
       member do
         get :fetch
+        get :versions
       end
     end
   end

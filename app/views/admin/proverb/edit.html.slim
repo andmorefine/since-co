@@ -48,3 +48,14 @@
     .col-auto
       button.btn.btn-primary type="button" @click="proverbUpdate"
         | 更新
+
+  .row.mt-4
+  .row v-for="version in versions"
+    .col-2
+      | {{ version.event }}
+    .col-4
+      | {{ version.object_changes }}
+    .col-4
+      | {{ version.object }}
+    .col-2
+      | {{ version.created_at }}

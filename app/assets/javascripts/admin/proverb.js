@@ -117,10 +117,12 @@ if (document.getElementById('vue-proverb-edit')) {
           alphabetal_id: '0',
           delete_flag: false,
         },
+        versions: [],
       }
     },
     created: function() {
       this.get(this.proverb.id);
+      this.getVersions(this.proverb.id);
     },
     computed: {
       customSwitch: function() {
@@ -150,6 +152,11 @@ if (document.getElementById('vue-proverb-edit')) {
           this.proverb.delete_flag = response.data.delete_flag ? true : false ;
         });
       },
+      getVersions: function (id) {
+        axios.get('/admin/proverb/' + id + '/versions').then(response => {
+          this.versions = response.data;
+        });
+      },
       proverbUpdate: function () {
         var self = this;
         if (!this.isValid) {
@@ -158,6 +165,7 @@ if (document.getElementById('vue-proverb-edit')) {
         }
         axios.put('/admin/proverb/' + this.proverb.id, this.proverb).then(response => {
           self.get(this.proverb.id);
+          self.getVersions(this.proverb.id);
         });
       },
     }

@@ -13,6 +13,11 @@ class Admin::ProverbController < Admin::Base
     render :json => proverb
   end
 
+  def versions
+    versions = Proverb.find(params[:id]).versions
+    render :json => versions
+  end
+
   def alphabetal
     m_alphabetal = MAlphabetal.all
     render :json => m_alphabetal
@@ -23,6 +28,7 @@ class Admin::ProverbController < Admin::Base
 
   def show
     gon.id = params[:id]
+
   end
 
   def edit
