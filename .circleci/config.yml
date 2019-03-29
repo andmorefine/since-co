@@ -33,6 +33,7 @@ jobs:
 
       # Bundler update
       - run: gem install bundler
+      - run: rm -rf vendor/
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
       - run: bundle update
