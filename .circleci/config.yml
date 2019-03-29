@@ -32,8 +32,7 @@ jobs:
         key: since-co-{{ checksum "Gemfile.lock" }}
 
       # Bundler update
-      - run: gem install bundler
-      - run: rm -rf vendor/
+      - run: gem install bundler -v 1.17.0
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
       - run: bundle update
