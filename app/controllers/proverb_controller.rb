@@ -3,7 +3,7 @@ class ProverbController < ApplicationController
   PER = 50
 
   def index
-    @proverbs = Proverb.active.order("RAND()").limit(10)
+    @proverbs = Proverb.active.order('RAND()').limit(10)
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
@@ -25,6 +25,7 @@ class ProverbController < ApplicationController
   end
 
   private
+
   def search_params
     params.require(:q).permit!
   end
@@ -32,8 +33,7 @@ class ProverbController < ApplicationController
   def fetch_alphabetal
     @m_alphabetals = MAlphabetal.joins(:proverb)
                                 .distinct
-                                .where("proverbs.delete_flag = false")
-                                .order("id")
+                                .where('proverbs.delete_flag = false')
+                                .order('id')
   end
 end
-

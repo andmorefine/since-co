@@ -1,5 +1,5 @@
 # Rails.rootを使用するために必要
-require File.expand_path(File.dirname(__FILE__) + "/environment")
+require File.expand_path(File.dirname(__FILE__) + '/environment')
 # cronを実行する環境変数
 rails_env = ENV['RAILS_ENV'] || :development
 # cronを実行する環境変数をセット

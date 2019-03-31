@@ -5,22 +5,22 @@ class Admin::ProverbController < Admin::Base
   def preview
     @search = Proverb.recent.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:q][:page]).per(params[:q][:limit])
-    render :json => @proverb
+    render json: @proverb
   end
 
   def fetch
     proverb = Proverb.find_by_id(params[:id])
-    render :json => proverb
+    render json: proverb
   end
 
   def versions
     versions = Proverb.find(params[:id]).versions
-    render :json => versions
+    render json: versions.sort.reverse
   end
 
   def alphabetal
     m_alphabetal = MAlphabetal.all
-    render :json => m_alphabetal
+    render json: m_alphabetal
   end
 
   def index
@@ -28,7 +28,6 @@ class Admin::ProverbController < Admin::Base
 
   def show
     gon.id = params[:id]
-
   end
 
   def edit
@@ -55,11 +54,9 @@ class Admin::ProverbController < Admin::Base
   end
 
   def create
-    begin
-      Proverb.create!(proverb_params)
-    rescue => e
-      p e.message
-    end
+    Proverb.create!(proverb_params)
+  rescue => e
+    p e.message
   end
 
   def proverb_params
@@ -70,17 +67,17 @@ class Admin::ProverbController < Admin::Base
       :text,
       :image,
       :alphabetal_id,
-      :delete_flag,
+      :delete_flag
     )
   end
 
   private
-    def admin_member
-      if current_member
-        redirect_to(root_url) unless current_member.admin?
-      else
-        redirect_to(root_url)
-      end
-    end
 
+  def admin_member
+    if current_member
+      redirect_to(root_url) unless current_member.admin?
+    else
+      redirect_to(root_url)
+    end
+  end
 end

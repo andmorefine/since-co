@@ -31,9 +31,9 @@ Rails.application.configure do
   # babelifyでES6が書ける
   config.browserify_rails.commandline_options = '--transform babelify'
   config.browserify_rails.use_browserifyinc = true
-  config.browserify_rails.source_map_environments << "production"
+  config.browserify_rails.source_map_environments << 'production'
   # 厳格モードで対応
-  config.browserify_rails.node_env = "production"
+  config.browserify_rails.node_env = 'production'
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
@@ -63,7 +63,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -94,7 +94,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)

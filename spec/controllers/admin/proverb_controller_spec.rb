@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProverbController, type: :controller do
-
   describe 'GET #index' do
     subject { admin_member }
     context 'ログインできること' do
@@ -16,6 +15,4 @@ RSpec.describe Admin::ProverbController, type: :controller do
       end
     end
   end
-
-
 end

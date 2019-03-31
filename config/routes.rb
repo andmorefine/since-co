@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :proverb do
       collection do
-        get 'preview', "alphabetal"
+        get 'preview', 'alphabetal'
       end
       member do
         get :fetch
@@ -41,5 +41,5 @@ Rails.application.routes.draw do
 
   resource :socket
   # トップページ
-  root to: "home#index"
+  root to: 'home#index'
 end

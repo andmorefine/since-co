@@ -5,7 +5,7 @@ class CreateProverbs < ActiveRecord::Migration[5.2]
       t.string :kana
       t.text :text
       t.string :image
-      t.integer :alphabetal_id, null:false, default: 0
+      t.integer :alphabetal_id, null: false, default: 0
       t.boolean :delete_flag, default: false
 
       t.timestamps

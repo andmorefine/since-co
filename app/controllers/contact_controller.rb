@@ -1,9 +1,8 @@
 class ContactController < ApplicationController
-
-  CHATWORK_ROOM = 140834301
+  CHATWORK_ROOM = 140_834_301
 
   def new
-    @contact = Contact.new()
+    @contact = Contact.new
   end
 
   def create
@@ -19,13 +18,13 @@ class ContactController < ApplicationController
   end
 
   private
-    def contact_params
-      params.require(:contact).permit(
-        :name,
-        :email,
-        :subject,
-        :body
-      )
-    end
 
+  def contact_params
+    params.require(:contact).permit(
+      :name,
+      :email,
+      :subject,
+      :body
+    )
+  end
 end

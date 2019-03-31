@@ -34,9 +34,9 @@ Rails.application.configure do
   # babelifyでES6が書ける
   config.browserify_rails.commandline_options = '--transform babelify'
   config.browserify_rails.use_browserifyinc = true
-  config.browserify_rails.source_map_environments << "test"
+  config.browserify_rails.source_map_environments << 'test'
   # 厳格モードで対応
-  config.browserify_rails.node_env = "test"
+  config.browserify_rails.node_env = 'test'
 
   config.factory_bot.definition_file_paths = []
 

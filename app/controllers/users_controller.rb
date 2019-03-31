@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   protect_from_forgery except: [:create, :destroy]
 
   def index
@@ -7,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     users = User.where(delete_flag: false)
-    render :json => users
+    render json: users
   end
 
   def destroy
@@ -22,5 +21,4 @@ class UsersController < ApplicationController
     user.attributes = { name: params[:name] }
     user.save
   end
-
 end

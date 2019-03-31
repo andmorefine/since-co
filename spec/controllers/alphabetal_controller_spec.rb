@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe AlphabetalController, type: :controller do
-
   describe 'GET #show' do
     # let!(:m_alphabetal) { FactoryBot.build(:m_alphabetal) }
     it 'show 表示されること' do
@@ -11,5 +10,4 @@ RSpec.describe AlphabetalController, type: :controller do
       # expect(response.status).to eq 200
     end
   end
-
 end

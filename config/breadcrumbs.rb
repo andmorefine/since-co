@@ -1,5 +1,5 @@
 crumb :root do
-  link "TOP", root_path
+  link 'TOP', root_path
 end
 
 # proverb#index

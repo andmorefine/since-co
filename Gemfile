@@ -49,7 +49,7 @@ gem 'ransack'
 gem 'browserify-rails'
 gem 'chatwork'
 gem 'gon'
-gem "binding_of_caller"
+gem 'binding_of_caller'
 gem 'net-ssh'
 gem 'net-scp'
 gem 'sitemap_generator'
@@ -60,10 +60,11 @@ gem 'serviceworker-rails'
 gem 'twitter'
 gem 'meta-tags'
 gem 'paper_trail'
+gem 'rubocop', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "simplecov"
+  gem 'simplecov'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
@@ -74,6 +75,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'rubocop-rspec'
 end
 
 group :development do

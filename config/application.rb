@@ -19,7 +19,7 @@ module SinceCo
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
 
-    config.assets.paths << config.root.join("node_modules")
+    config.assets.paths << config.root.join('node_modules')
 
     config.eager_load_paths.push("#{config.root}/app/apis")
 

@@ -1,5 +1,5 @@
 class ItemController < ApplicationController
-  protect_from_forgery :except => [:save_s3_images]
+  protect_from_forgery except: [:save_s3_images]
 
   AWS_S3_BUCKET = ENV['AWS_S3_BUCKET']
   AWS_ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID']
@@ -24,12 +24,12 @@ class ItemController < ApplicationController
         ['content-length-range', params[:size], params[:size]]
       ]
     }.to_json
-    policy = Base64.encode64(policy_document).gsub("\n", '')
+    policy = Base64.encode64(policy_document).delete("\n")
 
     # signatureの作成
     signature = Base64.encode64(
       OpenSSL::HMAC.digest(
-        OpenSSL::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy)).gsub("\n", '')
+        OpenSSL::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy)).delete("\n")
 
     # アップロードに必要な情報をJSON形式でクライアントに返す
     render json: {
@@ -44,5 +44,4 @@ class ItemController < ApplicationController
       }
     }
   end
-
 end

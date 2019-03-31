@@ -1,16 +1,16 @@
 class Twitter::ClientService
-
   def initialize(params = {})
   end
 
   def fetch
-    client.search("#ことわざ", lang: "ja", include_entities: true).take(5).collect
+    client.search("#ことわざ", lang: 'ja', include_entities: true).take(5).collect
   end
 
   def create
   end
 
   private
+
   def client
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['CONSUMER_KEY']

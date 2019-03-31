@@ -1,9 +1,9 @@
+# frozen_string_literal: true
 require 'faraday'
 
 class Chatwork::MessageService
-
   CHATWORK_TOKEN = ENV['CHATWORK_TOKEN']
-  VERSION = 'v2'
+  VERSION = 'v2'.freeze
 
   def initialize(params = {})
     @room_id = params[:room_id]
@@ -25,5 +25,4 @@ class Chatwork::MessageService
       request.params[:body] = @body # => ここに入れる文字が投稿される
     end
   end
-
 end
