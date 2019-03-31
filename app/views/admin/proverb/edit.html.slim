@@ -50,12 +50,16 @@
         | 更新
 
   .row.mt-4
-  .row v-for="version in versions"
+  .row v-for="version in viewVersions"
     .col-2
       | {{ version.event }}
-    .col-4.space_pre
-      | {{ version.object_changes }}
-    .col-4.space_pre
-      | {{ version.object }}
+    .col-8.space_pre
+      .row v-for="(value, key, index) in version.object_changes"
+        .col-2
+          | 【{{ key }}】
+        .col-5
+          | {{ value[0] }}
+        .col-5
+          | {{ value[1] }}
     .col-2
       | {{ version.created_at }}

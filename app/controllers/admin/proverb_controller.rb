@@ -15,6 +15,11 @@ class Admin::ProverbController < Admin::Base
 
   def versions
     versions = Proverb.find(params[:id]).versions
+
+    versions.map do |version|
+      version.object_changes = YAML::load(version.object_changes).to_json
+    end
+
     render json: versions.sort.reverse
   end
 

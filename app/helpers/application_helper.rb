@@ -34,4 +34,8 @@ module ApplicationHelper
       }
     }
   end
+
+  def version_name(id=nil)
+    id
+  end
 end

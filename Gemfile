@@ -61,6 +61,7 @@ gem 'twitter'
 gem 'meta-tags'
 gem 'paper_trail'
 gem 'rubocop', require: false
+gem 'config'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

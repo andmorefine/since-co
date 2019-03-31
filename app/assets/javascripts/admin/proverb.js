@@ -128,6 +128,22 @@ if (document.getElementById('vue-proverb-edit')) {
       customSwitch: function() {
         return this.proverb.delete_flag ? '非表示' : '表示';
       },
+      chageTitle: function (title) {
+        var change_title = '';
+        if (title) {
+          change_title = title;
+        }
+        return change_title;
+      },
+      viewVersions: function () {
+        var versions = this.versions;
+        var ver = [];
+        versions.forEach(function (key) {
+          key.object_changes = JSON.parse(key.object_changes);
+          ver.push(key);
+        });
+        return ver;
+      },
       validation: function() {
         this.proverb.image = this.uploadFileName;
         var proverb = this.proverb;

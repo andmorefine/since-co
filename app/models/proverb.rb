@@ -10,4 +10,5 @@ class Proverb < ApplicationRecord
   #   return if self.delete_flag?
   #   update({delete_flag: Proverb.delete_flags['published'], alphabetal_id: Time.current})
   # end
+
 end

@@ -37,3 +37,19 @@
     .col-6.text-center
       = link_to "一覧", proverb_index_path, class: "btn btn-info"
     .col-3
+
+  - @versions.each do |version|
+    .row
+      .col
+        = version.id
+      .col
+        - @version_object[version.id].each do |object|
+          span
+            = version_name(object[0])
+          span
+            = object[1][0]
+          span
+            = object[1][1]
+      .col
+        = version.created_at.strftime("%Y年%m月%d日 %H:%M")
+
