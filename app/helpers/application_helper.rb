@@ -35,7 +35,7 @@ module ApplicationHelper
     }
   end
 
-  def version_name(id=nil)
-    id
+  def version_name(text=nil)
+    "【" + Settings[:version][text] + "】"
   end
 end

@@ -1,0 +1,9 @@
+version:
+  name: 'タイトル'
+  kana: 'カナ'
+  text: '文章'
+  image: '画像'
+  order: 'オーダー'
+  alphabetal_id: 'あいうえお'
+  delete_flag: '表示フラグ'
+  updated_at: '更新日時'
