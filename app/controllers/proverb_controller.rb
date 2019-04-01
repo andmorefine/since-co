@@ -20,20 +20,16 @@ class ProverbController < ApplicationController
     @proverb_prev = @proverb.id - 1 unless @proverb.id == 1
     @proverb_next = @proverb.id + 1 unless @proverb.id == @proverb_all
 
-    @versions = Proverb.find(params[:id]).versions.sort.reverse
-    @version_object = {}
-    @versions.map do |version|
-      version.object_changes = YAML::load(version.object_changes)
-      @version_object.store(version.id, {})
-      array = version.object_changes.delete(' ').split(/=>|,/)
-      object = {}
-      array.each_slice(3).map do |k, v, s|
-        k_s = k.delete('{[\"]')
-        v_s = v.delete('[\"')
-        s_s = s.delete('\"]}')
-        object.store(k_s.to_s, [v_s.to_s, s_s.to_s])
-      end
-      @version_object.store(version.id, object)
+
+    versions = Proverb.find(params[:id]).versions.where(event: :update).sort.reverse
+    @versions = []
+    versions.each do |version|
+      @versions.push({
+        id: version.id,
+        object_changes: YAML::load(version.object_changes),
+        whodunnit: version.whodunnit,
+        created_at: version.created_at.strftime("%Y年%m月%d日 %H:%M"),
+      })
     end
   end
 

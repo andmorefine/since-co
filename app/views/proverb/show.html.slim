@@ -41,16 +41,17 @@
   - @versions.each do |version|
     .row
       .col-1
-        = version.id
+        = version[:id]
       .col
-        - @version_object[version.id].each do |object|
+        - version[:object_changes].each do |object|
           .row
             div
               = version_name(object[0])
             div
               = object[1][0]
             div
+              | →
+            div
               = object[1][1]
       .col-2
-        = version.created_at.strftime("%Y年%m月%d日 %H:%M")
-
+        = version[:created_at]
