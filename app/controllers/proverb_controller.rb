@@ -20,7 +20,6 @@ class ProverbController < ApplicationController
     @proverb_prev = @proverb.id - 1 unless @proverb.id == 1
     @proverb_next = @proverb.id + 1 unless @proverb.id == @proverb_all
 
-
     versions = Proverb.find(params[:id]).versions.where(event: :update).sort.reverse
     @versions = []
     versions.each do |version|
