@@ -5,12 +5,12 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :name, "名前" %><br />
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", required: "required" %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email, "Email" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: "required" %>
     </div>
 
@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.label :current_password, "パスワード" %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", required: "required" %>
     </div>
 
