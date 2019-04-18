@@ -3,7 +3,9 @@ class ProverbController < ApplicationController
   PER = 50
 
   def index
-    @proverbs = Proverb.active.order('RAND()').limit(10)
+    # Model.find(Model.pluck(:id).shuffle[0..4])
+
+    @proverbs = Proverb.active.find(Proverb.pluck(:id).shuffle[0..10])
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
