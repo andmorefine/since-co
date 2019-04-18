@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 require 'simplecov'
-require 'capybara/rspec'
+# require 'capybara/rspec'
 
-# ドライバを設定(デフォルトは:rack_test)
-Capybara.default_driver = :rack_test
-# jsオプション有効時のドライバを設定(デフォルトは:selenium)
-Capybara.javascript_driver = :selenium
+# # ドライバを設定(デフォルトは:rack_test)
+# Capybara.default_driver = :rack_test
+# # jsオプション有効時のドライバを設定(デフォルトは:selenium)
+# Capybara.javascript_driver = :selenium
 
+require 'simplecov'
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|

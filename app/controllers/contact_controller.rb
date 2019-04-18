@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContactController < ApplicationController
   CHATWORK_ROOM = 140_834_301
 
@@ -14,8 +16,7 @@ class ContactController < ApplicationController
     redirect_to thanks_contact_index_path
   end
 
-  def thanks
-  end
+  def thanks; end
 
   private
 

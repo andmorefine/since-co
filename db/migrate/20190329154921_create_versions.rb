@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration creates the `versions` table, the only schema PT requires.
 # All other migrations PT provides are optional.
 class CreateVersions < ActiveRecord::Migration[5.2]
@@ -30,6 +32,6 @@ class CreateVersions < ActiveRecord::Migration[5.2]
       #
       t.datetime :created_at
     end
-    add_index :versions, %i(item_type item_id)
+    add_index :versions, %i[item_type item_id]
   end
 end

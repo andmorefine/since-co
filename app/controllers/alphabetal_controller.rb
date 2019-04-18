@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlphabetalController < ApplicationController
   def show
     @m_alphabetals = MAlphabetal.joins(:proverb)

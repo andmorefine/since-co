@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ItemController < ApplicationController
   protect_from_forgery except: [:save_s3_images]
 
@@ -29,7 +31,9 @@ class ItemController < ApplicationController
     # signatureの作成
     signature = Base64.encode64(
       OpenSSL::HMAC.digest(
-        OpenSSL::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy)).delete("\n")
+        OpenSSL::Digest.new('sha1'), AWS_SECRET_ACCESS_KEY, policy
+      )
+    ).delete("\n")
 
     # アップロードに必要な情報をJSON形式でクライアントに返す
     render json: {

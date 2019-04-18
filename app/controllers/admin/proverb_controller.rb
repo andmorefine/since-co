@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Admin::ProverbController < Admin::Base
   before_action :admin_member
-  protect_from_forgery except: [:update, :create, :destroy]
+  protect_from_forgery except: %i[update create destroy]
 
   def preview
     @search = Proverb.recent.ransack(params[:q])
@@ -17,7 +19,7 @@ class Admin::ProverbController < Admin::Base
     versions = Proverb.find(params[:id]).versions
 
     versions.map do |version|
-      version.object_changes = YAML::load(version.object_changes).to_json
+      version.object_changes = YAML.safe_load(version.object_changes).to_json
     end
 
     render json: versions.sort.reverse
@@ -28,8 +30,7 @@ class Admin::ProverbController < Admin::Base
     render json: m_alphabetal
   end
 
-  def index
-  end
+  def index; end
 
   def show
     gon.id = params[:id]
@@ -44,7 +45,7 @@ class Admin::ProverbController < Admin::Base
     proverb.delete_flag = true
     begin
       proverb.save!
-    rescue => e
+    rescue StandardError => e
       p e.message
     end
   end
@@ -53,14 +54,14 @@ class Admin::ProverbController < Admin::Base
     proverb = Proverb.find_by_id(params[:id])
     begin
       proverb.update!(proverb_params)
-    rescue => e
+    rescue StandardError => e
       p e.message
     end
   end
 
   def create
     Proverb.create!(proverb_params)
-  rescue => e
+  rescue StandardError => e
     p e.message
   end
 

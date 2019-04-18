@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def admin_user
     admin_user = false
@@ -35,7 +37,7 @@ module ApplicationHelper
     }
   end
 
-  def version_name(text=nil)
-    "【" + Settings[:version][text] + "】"
+  def version_name(text = nil)
+    '【' + Settings[:version][text] + '】'
   end
 end

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'faraday'
 
 class Chatwork::MessageService
   CHATWORK_TOKEN = ENV['CHATWORK_TOKEN']
-  VERSION = 'v2'.freeze
+  VERSION = 'v2'
 
   def initialize(params = {})
     @room_id = params[:room_id]

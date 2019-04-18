@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 crumb :root do
   link 'TOP', root_path
 end
 
 # proverb#index
 crumb :proverbs do
-  link "ことわざ", proverb_index_path
+  link 'ことわざ', proverb_index_path
   parent :root
 end
 
@@ -19,12 +21,12 @@ crumb :alphabetal do |project|
 end
 
 crumb :contact do
-  link "お問い合わせ", new_contact_path
+  link 'お問い合わせ', new_contact_path
   parent :root
 end
 
 crumb :contact_thanks do
-  link "完了", thanks_contact_index_path
+  link '完了', thanks_contact_index_path
   parent :contact
 end
 

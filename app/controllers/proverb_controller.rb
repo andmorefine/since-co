@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class ProverbController < ApplicationController
-  before_action :fetch_alphabetal, only: [:index, :show]
+  before_action :fetch_alphabetal, only: %i[index show]
   PER = 50
 
   def index
     # Model.find(Model.pluck(:id).shuffle[0..4])
 
-    @proverbs = Proverb.active.find(Proverb.pluck(:id).shuffle[0..10])
+    @proverbs = Proverb.active.find(Proverb.pluck(:id).sample(11))
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)
@@ -25,17 +27,16 @@ class ProverbController < ApplicationController
     versions = Proverb.find(params[:id]).versions.where(event: :update).sort.reverse
     @versions = []
     versions.each do |version|
-      @versions.push({
+      @versions.push(
         id: version.id,
-        object_changes: YAML::load(version.object_changes),
+        object_changes: YAML.safe_load(version.object_changes),
         whodunnit: version.whodunnit,
-        created_at: version.created_at.strftime("%Y年%m月%d日 %H:%M"),
-      })
+        created_at: version.created_at.strftime('%Y年%m月%d日 %H:%M')
+      )
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   private
 

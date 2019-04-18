@@ -1,8 +1,9 @@
-class UsersController < ApplicationController
-  protect_from_forgery except: [:create, :destroy]
+# frozen_string_literal: true
 
-  def index
-  end
+class UsersController < ApplicationController
+  protect_from_forgery except: %i[create destroy]
+
+  def index; end
 
   def show
     users = User.where(delete_flag: false)

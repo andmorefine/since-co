@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount_roboto
   devise_for :members
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :contact, only: [:new, :create] do
+  resources :contact, only: %i[new create] do
     collection do
       get 'thanks'
     end
