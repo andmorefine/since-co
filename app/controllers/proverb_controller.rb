@@ -5,9 +5,7 @@ class ProverbController < ApplicationController
   PER = 50
 
   def index
-    # Model.find(Model.pluck(:id).shuffle[0..4])
-
-    @proverbs = Proverb.active.find(Proverb.pluck(:id).sample(11))
+    @proverbs = Proverb.active.image_active.limit(20).shuffle
 
     @search = Proverb.active.ransack(params[:q])
     @proverb = @search.result(distinct: true).page(params[:page]).per(PER)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Proverb < ApplicationRecord
-  # belongs_to :m_alphabetal, foreign_key: 'id', primary_key: 'alphabetal_id'
+  belongs_to :m_alphabetal, primary_key: "alphabetal_id", optional: true
   # enum delete_flag: { draft: 0, published: 1 }
   scope :active, -> { where(delete_flag: false) }
   scope :image_active, -> { where.not(image: '') }
