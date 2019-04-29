@@ -15,7 +15,7 @@
   ul.list-group
     li.list-group-item v-for="proverb in proverbIndex"
       span
-        | {{ proverb.id }} - 
+        | {{ proverb.id }} -
       span
         | {{ proverb.name }}
       a.btn.btn-secondary.ml-3 :href="'/admin/proverb/' + proverb.id+ '/edit'"

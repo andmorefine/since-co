@@ -35,3 +35,18 @@ h5, .h5 {
   font-weight: normal;
   line-height: 1.4;
 }
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+  content:"";
+  display:block;
+  overflow:hidden;
+}
+.cf:after {
+  clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+  zoom:1;
+}

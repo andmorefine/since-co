@@ -15,10 +15,15 @@
       - if @alphabetal_next.present?
         = link_to ">", alphabetal_path(@alphabetal_next), class: "btn btn-outline-secondary"
   hr
-  div
+  .cf
     - @proverbs.active.each do |proverb|
-      h3.d-inline-block
-        = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+      h3.float-left
+        / = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
+        a.btn.btn-outline-secondary.m-1[href="/proverb/#{proverb.id}"]
+          div
+            = proverb.name
+          - if proverb.image.present?
+            img[style="width: 15rem;" src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"]
   hr
   div
     - @m_alphabetals.each do |alphabetal|

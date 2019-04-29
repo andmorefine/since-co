@@ -38,20 +38,20 @@
       = link_to "一覧", proverb_index_path, class: "btn btn-info"
     .col-3
 
-  - @versions.each do |version|
-    .row
-      .col-1
-        = version[:id]
-      .col
-        - version[:object_changes].each do |object|
-          .row
-            div
-              = version_name(object[0])
-            div
-              = object[1][0]
-            div
-              | →
-            div
-              = object[1][1]
-      .col-2
-        = version[:created_at]
+  / - @versions.each do |version|
+  /   .row
+  /     .col-1
+  /       = version[:id]
+  /     .col
+  /       - version[:object_changes].each do |object|
+  /         .row
+  /           div
+  /             = version_name(object[0])
+  /           div
+  /             = object[1][0]
+  /           div
+  /             | →
+  /           div
+  /             = object[1][1]
+  /     .col-2
+  /       = version[:created_at]
