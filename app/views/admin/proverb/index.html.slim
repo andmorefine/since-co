@@ -12,14 +12,24 @@
       botton.btn.btn-info @click="get"
         | 検索
 
-  ul.list-group
-    li.list-group-item v-for="proverb in proverbIndex"
-      span
-        | {{ proverb.id }} -
-      span
-        | {{ proverb.name }}
-      a.btn.btn-secondary.ml-3 :href="'/admin/proverb/' + proverb.id+ '/edit'"
-        | 編集
-      / a[v-bind:href="proverb.id"]
-        / ｜ 編集
-      / = link_to "一覧", edit_admin_proverb_path("@{proverb.id}"), class: "btn btn-secondary ml-3"
+  .row.align-items-center.border-bottom.mb-2.pb-2
+    .col-auto
+      | id
+    .col
+      | タイトル
+    .col-auto
+      | 非表示
+    .col-auto
+      | 編集
+  .row.align-items-center.border-bottom.mb-2.pb-2 v-for="proverb in proverbIndex"
+    .col-auto
+      | {{ proverb.id }}
+    .col
+      | {{ proverb.name }}
+    .col-auto
+      | {{ proverb.delete_flag }}
+    a.col-auto.btn.btn-secondary.ml-3 :href="'/admin/proverb/' + proverb.id+ '/edit'"
+      | 編集
+    / a[v-bind:href="proverb.id"]
+      / ｜ 編集
+    / = link_to "一覧", edit_admin_proverb_path("@{proverb.id}"), class: "btn btn-secondary ml-3"

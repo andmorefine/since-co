@@ -11,7 +11,12 @@
     .col-auto.ml-auto
       = paginate @proverb
 
-  div
-    - @proverb.each do |proverb|
-      span = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
-
+  .cf
+    - @proverb.active.each do |proverb|
+      h3.float-left
+        a.btn.btn-outline-secondary.m-1[href="/proverb/#{proverb.id}"]
+          div
+            h5
+              = proverb.name
+          - if proverb.image.present?
+            img[style="width: 15rem;" src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"]
