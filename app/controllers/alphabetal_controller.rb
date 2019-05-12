@@ -8,6 +8,7 @@ class AlphabetalController < ApplicationController
                                 .order('id')
     @alphabetal = MAlphabetal.find_by_id(params[:id])
     return redirect_to proverb_index_path if @alphabetal.nil?
+
     @alphabetal_all = MAlphabetal.all.size
     @proverbs = Proverb.page.where(alphabetal_id: params[:id]).per(1000)
     @alphabetal_prev = @alphabetal.id - 1 unless @alphabetal.id == 1
