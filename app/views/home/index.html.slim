@@ -9,7 +9,21 @@
         p.card-text
           | 昔から言い伝えてきた、訓戒・風刺などを内容とする短い句
         = link_to "ことわざ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block stretched-link"
+    .card.mt-2.mr-2
+      img.card-img-top src="#{image_host}/img/stickers/main.png" alt="全力変顔"
+      .card-body
+        h4.card-title
+          | 全力変顔
+        p.card-text
+          | 暇な時。楽しい時。嬉しい時。つまらない時。寂しい時。悲しい時。このスタンプを使って友達を笑わせましょう♪
+        a.btn.btn-primary.btn-block.stretched-link[target="_blank" href="//store.line.me/stickershop/product/1011010/ja"]
+          i.fa.fa-external-link.pr-1
+          span LINEスタンプ
 
+    .card.mt-2.mr-2
+      iframe[frameborder="0" height="480" width="100%" src="//andmorefine.base.ec/items/21255126/widget/large"]
+
+  .card-columns
     - @twitters.each do |tweet|
       .card.mt-2.mr-2
         img.icon-twitter src="#{tweet.user.profile_image_uri_https}" alt="#{tweet.user.name}"
@@ -23,5 +37,4 @@
           p.card-text
             = tweet.text
 
-  iframe[frameborder="0" height="480" width="320" src="http://andmorefine.base.ec/items/21255126/widget/large"]
-  iframe[width="100%" height="315" src="https://www.youtube.com/embed/qDniDuG8f90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen]
+  iframe[width="100%" height="315" src="//www.youtube.com/embed/qDniDuG8f90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen]
