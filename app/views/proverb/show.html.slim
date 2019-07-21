@@ -24,6 +24,23 @@
     .mt-3.proverb-image
       img.img-thumbnail.mx-auto.d-block src="#{image_host}/img/proverb/#{@proverb.image}" alt="#{@proverb.name} | andmorefine"
 
+  .mt-5
+    - @others.each do |other|
+      - if other.id == @proverb.id
+        a.btn.btn-secondary.m-1 href="/proverb/#{other.id}"
+          span
+            = other.name
+          - if other.image.present?
+            .mt-2
+              img.mx-auto.d-block width="100" src="#{image_host}/img/proverb/#{other.image}" alt="#{other.name} | andmorefine"
+      - else
+        a.btn.btn-outline-secondary.m-1 href="/proverb/#{other.id}"
+          span
+            = other.name
+          - if other.image.present?
+            .mt-2
+              img.mx-auto.d-block width="100" src="#{image_host}/img/proverb/#{other.image}" alt="#{other.name} | andmorefine"
+
   / hr
   .mt-5
     - @m_alphabetals.each do |alphabetal|
