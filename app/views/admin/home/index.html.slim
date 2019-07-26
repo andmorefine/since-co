@@ -5,7 +5,7 @@
   hr
   h2
     | 本日累計：
-    = @analytics_reports[:total]
+    = @analytics_daily_reports[:total]
 
   table.table.table-sm.table-hover.table-bordered.table-striped.my-3
     thead
@@ -15,10 +15,28 @@
         th[scope="col"]
           | Views
     tbody
-      - @analytics_reports[:pages].each do |analytics|
+      - @analytics_daily_reports[:pages].each do |day|
         tr
+          td[style="word-break: break-all;"]
+            = day[:url]
           td
-            = analytics[:url]
-          td
-            = analytics[:views]
+            = day[:views]
+  hr
+  h2
+    | 月別累計：
+    = @analytics_monthly_reports[:total]
 
+  table.table.table-sm.table-hover.table-bordered.table-striped.my-3
+    thead
+      tr
+        th[scope="col"]
+          | URL
+        th[scope="col"]
+          | Views
+    tbody
+      - @analytics_monthly_reports[:pages].each do |month|
+        tr
+          td[style="word-break: break-all;"]
+            = month[:url]
+          td
+            = month[:views]

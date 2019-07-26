@@ -50,7 +50,7 @@ class Analytics::ReportService
         total: data.totals.first.values.first,
         pages: data.rows.map do |row|
           {
-            url: @base_url + row.dimensions.first,
+            url: row.dimensions.first,
             views: row.metrics.first.values.first
           }
         end
