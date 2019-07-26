@@ -1,0 +1,24 @@
+
+#container-fluid.px-3.my-2
+  h1
+    | Analytics
+  hr
+  h2
+    | 本日累計：
+    = @analytics_reports[:total]
+
+  table.table.table-sm.table-hover.table-bordered.table-striped.my-3
+    thead
+      tr
+        th[scope="col"]
+          | URL
+        th[scope="col"]
+          | Views
+    tbody
+      - @analytics_reports[:pages].each do |analytics|
+        tr
+          td
+            = analytics[:url]
+          td
+            = analytics[:views]
+

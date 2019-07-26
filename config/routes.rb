@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   mount API::Root => '/'
 
   namespace :admin do
+    resources :home do
+      collection do
+        get 'fetch'
+      end
+    end
     resources :proverb do
       collection do
         get 'preview', 'alphabetal'
