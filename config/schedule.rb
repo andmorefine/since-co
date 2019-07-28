@@ -12,3 +12,12 @@ set :output, "#{Rails.root}/log/cron.log"
 every 1.day, at: '5:00 am' do
   rake '-s sitemap:refresh'
 end
+
+every 3.hours do
+  rake "task_tweet_favorite:post"
+end
+
+every 1.week do
+  command "rm -rf #{Rails.root}/log/production.log"
+  command "touch #{Rails.root}/log/production.log"
+end
