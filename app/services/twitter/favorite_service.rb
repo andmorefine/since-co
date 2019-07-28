@@ -5,16 +5,12 @@ CHATWORK_ROOM = 140_834_301
 class Twitter::FavoriteService
   def initialize(params = {}); end
 
-  def create
-    begin
-      search_words = ["イラスト", "絵描きさんと繋がりたい", "イラスト好きな人とつながりたい", "創作の輪"]
-      word = search_words.sample
-      tweets = client.search("#" + word, result_type: "mixed").take(100)
-      client.favorite!(tweets)
-      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: word).create
-    rescue => e
-      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: e.message).create
-    end
+  def push_favorite
+    search_words = ["イラスト", "絵描きさんと繋がりたい", "イラスト好きな人とつながりたい", "創作の輪"]
+    word = search_words.sample
+    tweets = client.search("#" + word, result_type: "mixed").take(100)
+    client.favorite!(tweets)
+    Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: word).create
   end
 
   private
