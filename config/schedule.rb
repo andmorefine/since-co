@@ -13,7 +13,7 @@ every 1.day, at: '5:00 am' do
   rake '-s sitemap:refresh'
 end
 
-every 3.hours do
+every 2.hours do
   rake "task_tweet_favorite:post"
 end
 
