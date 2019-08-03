@@ -9,13 +9,17 @@ class Twitter::FavoriteService
   def push_favorite
     search_words = ["イラスト", "絵描きさんと繋がりたい", "artwork"]
     word = search_words.sample
-    tweets = client.search("#" + word, result_type: "recent").take(50)
+    tweets = client.search("#" + word, result_type: "recent").take(80)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
-    body_text = word + "（" + tweets.count.to_s + "）"
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status("/search/tweets")
     begin
-      client.favorite!(tweets)
+      favorite_list = []
+      tweets.each do |tweet|
+        ok = client.favorite(tweet.id)
+        favorite_list.push(tweet.id) if ok.present?
+      end
+      body_text = word + "（" + favorite_list.count.to_s + "/" + tweets.count.to_s + "）"
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     rescue => error
       body_text = word + " error（" + error.to_s + "）"
