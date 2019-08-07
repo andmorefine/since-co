@@ -24,8 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :user
-
   resources :alphabetal
 
   resources :proverb do

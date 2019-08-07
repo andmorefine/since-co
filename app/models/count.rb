@@ -1,0 +1,2 @@
+class Count < ApplicationRecord
+end
