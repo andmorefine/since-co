@@ -21,9 +21,9 @@ class Twitter::FavoriteService
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
-      body_text = word + "（" + favorite_list.count.to_s + "/" + twitter_count.count.to_s + "）（" + tweets.count.to_s + "/" + twitter_count.limit.to_s + "）"
-      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
       twitter_count.increment!(:count, favorite_list.count)
+      body_text = word + "（" + favorite_list.count.to_s + "/" + tweets.count.to_s + "）（" + twitter_count.count.to_s + "/" + twitter_count.limit.to_s + "）"
+      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     rescue => error
       body_text = word + " error（" + error.to_s + "）"
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
