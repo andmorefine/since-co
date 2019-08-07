@@ -9,3 +9,11 @@ namespace :task_tweet_favorite do
     tweet.push_favorite
   end
 end
+
+namespace :task_tweet_favorite do
+  desc "リセット"
+  task reset: :environment do
+    tweet = Twitter::FavoriteService.new
+    tweet.reset_increment
+  end
+end

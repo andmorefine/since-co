@@ -9,22 +9,32 @@ class Twitter::FavoriteService
   def push_favorite
     search_words = ["イラスト", "絵描きさんと繋がりたい", "artwork"]
     word = search_words.sample
-    tweets = client.search("#" + word, result_type: "recent").take(80)
+    tweets = client.search("#" + word, result_type: "recent").take(100)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status("/search/tweets")
+    twitter_count = Count.twitter
+    return if twitter_count.count > twitter_count.limit
     begin
       favorite_list = []
       tweets.each do |tweet|
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
-      body_text = word + "（" + favorite_list.count.to_s + "/" + tweets.count.to_s + "）"
+      body_text = word + "（" + favorite_list.count.to_s + "/" + twitter_count.count.to_s + "）（" + tweets.count.to_s + "/" + twitter_count.limit.to_s + "）"
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
+      twitter_count.increment!(:count, favorite_list.count)
     rescue => error
       body_text = word + " error（" + error.to_s + "）"
-      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text + limit.to_s).create
+      Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     end
+  end
+
+  def reset_increment
+    twitter_count = Count.twitter
+    twitter_count.update!(count: 0)
+    body_text = "リセットしました"
+    Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
   end
 
   private
