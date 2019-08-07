@@ -14,7 +14,7 @@ every 1.day, at: '5:00 am' do
 end
 
 every 1.day, at: '0:00 am' do
-  rake "task_tweet_favorite:reset"
+  rake "task_tweet_count:reset"
 end
 
 every 2.hours do

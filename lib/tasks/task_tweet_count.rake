@@ -2,10 +2,10 @@
 
 require Rails.root.join("app/services/twitter/favorite_service.rb")
 
-namespace :task_tweet_favorite do
-  desc "ツイートにいいね"
-  task post: :environment do
+namespace :task_tweet_count do
+  desc "リセット"
+  task reset: :environment do
     tweet = Twitter::FavoriteService.new
-    tweet.push_favorite
+    tweet.reset_increment
   end
 end
