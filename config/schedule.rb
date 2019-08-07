@@ -13,7 +13,7 @@ every 1.day, at: '5:00 am' do
   rake '-s sitemap:refresh'
 end
 
-every 1.day, at: '0:00 am' do
+every :day, at: '00:00' do
   rake "task_tweet_count:reset"
 end
 
