@@ -7,7 +7,7 @@ class Twitter::FavoriteService
   def initialize(params = {}); end
 
   def push_favorite
-    search_words = ["イラスト", "絵描きさんと繋がりたい", "artist"]
+    search_words = ["イラスト", "絵描きさんと繋がりたい", "artwork"]
     word = search_words.sample
     tweets = client.search("#" + word, result_type: "recent").take(82)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
@@ -21,7 +21,7 @@ class Twitter::FavoriteService
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
-      twitter_count.increment!(:count, favorite_list.count)
+      twitter_count.increment!(:count, tweets.count)
       body_text = word + "（" + favorite_list.count.to_s + "/" + tweets.count.to_s + "）（" + twitter_count.count.to_s + "/" + twitter_count.limit.to_s + "）"
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     rescue => error
