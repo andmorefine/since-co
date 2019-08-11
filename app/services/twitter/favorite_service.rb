@@ -9,7 +9,7 @@ class Twitter::FavoriteService
   def push_favorite
     search_words = ["イラスト", "絵描きさんと繋がりたい", "artwork"]
     word = search_words.sample
-    tweets = client.search("#" + word, result_type: "recent").take(100)
+    tweets = client.search("#" + word, result_type: "recent").take(83)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status("/search/tweets")
