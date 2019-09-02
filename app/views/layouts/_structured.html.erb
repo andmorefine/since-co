@@ -1,0 +1,36 @@
+<% if params[:controller] == 'proverb' && params[:action] == 'show' %>
+  <% if @proverb.present? && @proverb.image.present? %>
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://andmorefine.com/proverb/<%= @proverb.id %>"
+    },
+    "headline": "<%= @proverb.name %>",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:<%= image_host %>/img/proverb/<%= @proverb.image %>",
+      "height": 800,
+      "width": 600
+    },
+    "datePublished": "<%= @proverb.created_at %>",
+    "dateModified": "<%= @proverb.updated_at %>",
+    "author": {
+      "@type": "Person",
+      "name": "andmorefine"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "andmorefine",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:<%= image_host %>/img/favicons/icon-120x120.png",
+        "width": 120,
+        "height": 120
+      }
+    },
+    "description": "<%= @proverb.text %>"
+  }
+  <% end %>
+<% end %>

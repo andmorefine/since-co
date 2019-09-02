@@ -10,6 +10,8 @@ html
     = display_meta_tags(default_meta_tags)
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
+    script type="application/ld+json"
+      == render "layouts/structured"
   body
 
     == render "layouts/nav"
