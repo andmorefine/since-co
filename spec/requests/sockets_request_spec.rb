@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe SocketsController, type: :controller do
+RSpec.describe SocketsController, type: :request do
   describe 'GET #show' do
     it 'show 表示されること' do
-      get :show, params: { id: 1 }
+      get '/socket'
       expect(response.status).to eq 200
     end
   end

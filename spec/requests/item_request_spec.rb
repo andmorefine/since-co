@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ItemController, type: :controller do
+RSpec.describe ItemController, type: :request do
   describe '.save_s3_images' do
     # it '画像アップできること' do
     #  post :save_s3_images, params: {
