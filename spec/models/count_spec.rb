@@ -3,5 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Count, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'factory_bot test' do
+    count = create(:count)
+    expect(Count.count).to eq 1
+  end
 end

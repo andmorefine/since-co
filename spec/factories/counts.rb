@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :count do
-    name { 'MyString' }
-    count { 1 }
+    service_name { 'twitter' }
+    count { 0 }
     limit { 1 }
   end
 end

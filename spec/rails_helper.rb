@@ -41,7 +41,12 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  # FactoryBot.find_definitions
+  
   config.include FactoryBot::Syntax::Methods
+  
+  FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
+  FactoryBot.find_definitions
 
   config.include ControllerMacros
 end
