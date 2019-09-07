@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Count < ApplicationRecord
-  scope :twitter, -> { find_by(service_name: "twitter") }
+  scope :twitter, -> { find_by(service_name: 'twitter') }
 
   def initialize
     self.count = 0.to_f

@@ -3,7 +3,6 @@
 require 'google/apis/analyticsreporting_v4'
 
 class Analytics::ReportService
-
   #
   # レポート対象を指定してオブジェクトを生成
   # @param [String] base_url  レポート対象サイトのURL
@@ -32,7 +31,7 @@ class Analytics::ReportService
         metrics: [metric],
         date_ranges: [date_range],
         dimensions: [dimension],
-        order_bys: [order_by],
+        order_bys: [order_by]
       )]
     )
     response = @client.batch_get_reports(request)
