@@ -27,9 +27,9 @@ jobs:
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
       # Restore Cached Dependencies
-      - type: cache-restore
-        name: Restore bundle cache
-        key: since-co-{{ checksum "Gemfile.lock" }}
+      # - type: cache-restore
+      #   name: Restore bundle cache
+      #   key: since-co-{{ checksum "Gemfile.lock" }}
 
       # Bundler update
       - run: gem install bundler -v 1.17.0
@@ -48,6 +48,7 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails db:create db:migrate
 
       # Run the tests
+      - run: yarn install
       - run: bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml --format progress
       - run: bundle exec yard doc -o $CIRCLE_ARTIFACTS/yard
 
