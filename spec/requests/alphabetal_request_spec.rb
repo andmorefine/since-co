@@ -7,7 +7,7 @@ RSpec.describe AlphabetalController, type: :request do
     it 'show 表示されること' do
       MAlphabetal.create(name: 'あ', created_at: Time.zone.now, updated_at: Time.zone.now)
       get '/alphabetal/1'
-      expect(response.status).to eq 200
+      expect(response.body).to include 'andmorefine'
     end
   end
 end

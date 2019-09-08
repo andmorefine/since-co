@@ -48,7 +48,6 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails db:create db:migrate
 
       # Run the tests
-      - run: yarn install
       - run: bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml --format progress
       - run: bundle exec yard doc -o $CIRCLE_ARTIFACTS/yard
 

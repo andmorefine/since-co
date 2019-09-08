@@ -8,14 +8,14 @@ RSpec.describe ProverbController, type: :request do
   describe 'GET #index' do
     it 'index 表示されること' do
       get '/proverb'
-      expect(response.status).to eq 200
+      expect(response.body).to include 'andmorefine'
     end
   end
 
   describe 'GET #show' do
     it 'show 表示されること' do
       get '/proverb/1'
-      expect(response.status).to eq 200
+      expect(response.body).to include 'andmorefine'
     end
   end
 end
