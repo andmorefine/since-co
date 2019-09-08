@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe SocketsController, type: :request do
+RSpec.describe SocketsController, type: :controller do
   describe 'GET #show' do
     it 'show 表示されること' do
-      get '/socket'
-      expect(response.body).to include 'andmorefine'
+      get :show
+      expect(response.status).to eq 200
     end
   end
 end
