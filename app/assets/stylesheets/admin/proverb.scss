@@ -19,3 +19,13 @@
 .space_pre {
   white-space: pre-wrap;
 }
+
+.bg-delete {
+  opacity: 0.7;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  .form-control {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+}

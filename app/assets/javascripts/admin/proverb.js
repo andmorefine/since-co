@@ -165,8 +165,12 @@ if (document.getElementById('vue-proverb-edit')) {
             id: "",
             title: "",
             proverb_synonym_id: 0,
+            delete_flag: false,
           }
         );
+      },
+      synonymDelete: function (id) {
+        this.proverb.synonyms[id].delete_flag = true;
       },
       get: function (id) {
         axios.get('/admin/proverb/' + id + '/fetch').then(response => {

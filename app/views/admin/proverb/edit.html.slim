@@ -22,8 +22,11 @@
             | 追加
       .form-group.row
         .col v-for="(synonym, key) in proverb.synonyms" :key="key"
-          input.form-control type="number" placeholder="ID" v-model="synonym.proverb_synonym_id"
-          input.form-control type="text" placeholder="title" v-model="synonym.title"
+          div :class="{ 'bg-delete': synonym.delete_flag }"
+            input.form-control type="number" placeholder="ID" v-model="synonym.proverb_synonym_id"
+            input.form-control type="text" placeholder="title" v-model="synonym.title"
+            button.btn.btn-danger type="button" @click="synonymDelete(key)"
+              | 削除
 
     .mt-3
       select.form-control v-model="proverb.alphabetal_id"

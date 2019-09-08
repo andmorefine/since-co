@@ -13,7 +13,7 @@ class Admin::ProverbController < Admin::Base
   def fetch
     proverb = Proverb.find_by_id(params[:id])
     proverb_h = proverb.attributes
-    proverb_h["synonyms"] = proverb.proverb_synonyms
+    proverb_h["synonyms"] = proverb.proverb_synonyms.active
     render json: proverb_h
   end
 
@@ -59,8 +59,8 @@ class Admin::ProverbController < Admin::Base
       params[:synonyms].each do |synonym|
         if synonym[:id].present?
           proverb_synonym = ProverbSynonym.find(synonym[:id])
-          proverb_synonym.update!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id])
-        else
+          proverb_synonym.update!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id], delete_flag: synonym[:delete_flag])
+        elsif synonym[:proverb_synonym_id] != 0
           ProverbSynonym.create!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id], proverb_id: proverb.id,)
         end
       end
