@@ -14,6 +14,16 @@
         input.custom-control-input type="checkbox" id="customSwitch1" v-model="proverb.delete_flag"
         label.custom-control-label for="customSwitch1"
           | {{ customSwitch }}
+    .mt-3
+      h4.mb-2.row.d-flex.justify-content-between
+        .col 類義語
+        .col.text-right
+          button.btn.btn-info type="button" @click="synonymAdd"
+            | 追加
+      .form-group.row
+        .col v-for="(synonym, key) in proverb.synonyms" :key="key"
+          input.form-control type="number" placeholder="ID" v-model="synonym.proverb_synonym_id"
+          input.form-control type="text" placeholder="title" v-model="synonym.title"
 
     .mt-3
       select.form-control v-model="proverb.alphabetal_id"

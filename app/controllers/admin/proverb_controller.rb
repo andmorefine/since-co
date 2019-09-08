@@ -12,7 +12,9 @@ class Admin::ProverbController < Admin::Base
 
   def fetch
     proverb = Proverb.find_by_id(params[:id])
-    render json: proverb
+    proverb_h = proverb.attributes
+    proverb_h["synonyms"] = proverb.proverb_synonyms
+    render json: proverb_h
   end
 
   def versions
@@ -54,9 +56,19 @@ class Admin::ProverbController < Admin::Base
     proverb = Proverb.find_by_id(params[:id])
     begin
       proverb.update!(proverb_params)
+      params[:synonyms].each do |synonym|
+        if synonym[:id].present?
+          proverb_synonym = ProverbSynonym.find(synonym[:id])
+          proverb_synonym.update!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id])
+        else
+          ProverbSynonym.create!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id], proverb_id: proverb.id,)
+        end
+      end
     rescue StandardError => e
       p e.message
     end
+
+    render json: proverb
   end
 
   def create

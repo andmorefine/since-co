@@ -114,6 +114,7 @@ if (document.getElementById('vue-proverb-edit')) {
           kana: '',
           text: '',
           image: '',
+          synonyms: [],
           alphabetal_id: '0',
           delete_flag: false,
         },
@@ -158,12 +159,22 @@ if (document.getElementById('vue-proverb-edit')) {
       },
     },
     methods: {
+      synonymAdd: function () {
+        this.proverb.synonyms.push(
+          {
+            id: "",
+            title: "",
+            proverb_synonym_id: 0,
+          }
+        );
+      },
       get: function (id) {
         axios.get('/admin/proverb/' + id + '/fetch').then(response => {
           this.proverb.name = response.data.name;
           this.proverb.kana = response.data.kana;
           this.proverb.text = response.data.text;
           this.proverb.image = response.data.image;
+          this.proverb.synonyms = response.data.synonyms;
           this.proverb.alphabetal_id = response.data.alphabetal_id;
           this.proverb.delete_flag = response.data.delete_flag ? true : false ;
         });
