@@ -2,14 +2,13 @@
 #vue-app.mt-2.container-fluid[v-cloak]
   .card-columns
     .card.mt-2.mr-2
-      img.card-img-top src="#{image_host}/img/proverb/AE21B67F-63A7-44B4-9CD6-7953ED3EF325.jpeg" alt="ことわざ【諺】"
+      img.card-img-top src="#{image_host}/img/proverb/#{@proverb_image}" alt="ことわざ【諺】"
       .card-body
         h4.card-title
           | ことわざ【諺】
         p.card-text
           | 昔から言い伝えてきた、訓戒・風刺などを内容とする短い句
         = link_to "ことわざ （全:#{@proverb_count}件）", proverb_index_path, class: "btn btn-primary btn-block stretched-link"
-
 
     - @proverb_radom.each do |proverb|
       .card
