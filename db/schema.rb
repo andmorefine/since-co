@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_08_180923) do
+ActiveRecord::Schema.define(version: 2019_09_10_141446) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_09_08_180923) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "proverb_sources", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.boolean "delete_flag", default: false
+    t.bigint "proverb_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proverb_id"], name: "index_proverb_sources_on_proverb_id"
+  end
+
   create_table "proverb_synonyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.integer "proverb_synonym_id"
@@ -107,5 +116,6 @@ ActiveRecord::Schema.define(version: 2019_09_08_180923) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "proverb_sources", "proverbs"
   add_foreign_key "proverb_synonyms", "proverbs"
 end
