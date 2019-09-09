@@ -24,6 +24,17 @@
     .mt-3.proverb-image
       img.img-thumbnail.mx-auto.d-block src="#{image_host}/img/proverb/#{@proverb.image}" alt="#{@proverb.name} | andmorefine"
 
+  - if @proverb_synonyms.length > 0
+    .mt-3
+      h3.h5.text-center.font-weight-bold
+        | 類義語
+      .flex-column-reverse.justify-content-center.text-center
+        - @proverb_synonyms.each do |synonym|
+          a.btn.btn-outline-dark.m-1 href="/proverb/#{synonym.id}"
+            span
+              = synonym.name
+
+  hr
   .mt-5
     - @others.each do |other|
       - if other.id == @proverb.id
