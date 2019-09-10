@@ -40,16 +40,16 @@ var vue_app = new Vue({
     },
   },
   methods: {
-    get: function() {
-      axios.get('/user/').then(response => {
-        this.user_index = response.data;
-      });
-    },
-    deleteIndex: function(id) {
-      axios.delete('/user/', {data: id}).then(response => {
-        this.get();
-      });
-    },
+    // get: function() {
+    //   axios.get('/user/').then(response => {
+    //     this.user_index = response.data;
+    //   });
+    // },
+    // deleteIndex: function(id) {
+    //   axios.delete('/user/', {data: id}).then(response => {
+    //     this.get();
+    //   });
+    // },
     post: function() {
 
       if (!this.isValid) {
@@ -57,10 +57,10 @@ var vue_app = new Vue({
         return false;
       }
 
-      axios.post('/user/', this.user).then(response => {
-        this.user.name = "";
-        this.get();
-      });
+      // axios.post('/user/', this.user).then(response => {
+      //   this.user.name = "";
+      //   this.get();
+      // });
     },
   }
 });
