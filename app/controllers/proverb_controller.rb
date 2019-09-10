@@ -20,6 +20,7 @@ class ProverbController < ApplicationController
     @proverb = Proverb.find_by_id(params[:id])
     return redirect_to proverb_index_path if @proverb.nil?
 
+    @source_title = @proverb.proverb_sources.active.first.try(:title)
     @proverb_synonyms = []
     @proverb.proverb_synonyms.active.map do |synonym|
       @proverb_synonyms.push(Proverb.find_by_id(synonym.proverb_synonym_id))

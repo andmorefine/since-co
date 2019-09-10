@@ -27,8 +27,14 @@
             input.form-control type="text" placeholder="title" v-model="synonym.title"
             button.btn.btn-danger type="button" @click="synonymDelete(key)"
               | 削除
+    .mt-3
+      h4.mb-2.row.d-flex.justify-content-between
+        .col 出典
+      input.form-control type="text" placeholder="孟子" v-model="proverb.source"
 
     .mt-3
+      h4.mb-2.row.d-flex.justify-content-between
+        .col 五十音
       select.form-control v-model="proverb.alphabetal_id"
         option value="0" Default select
         option v-for="alpha in alphabetal_index" :value="alpha.id"

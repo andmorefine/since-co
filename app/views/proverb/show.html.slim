@@ -34,6 +34,14 @@
             span
               = synonym.name
 
+  - if @source_title.present?
+    .mt-3
+      h3.h5.text-center
+        span.font-weight-bold
+          | 出典：
+        span
+          = @source_title
+
   hr
   .mt-5
     - @others.each do |other|

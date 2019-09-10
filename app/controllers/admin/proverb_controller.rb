@@ -14,6 +14,7 @@ class Admin::ProverbController < Admin::Base
     proverb = Proverb.find_by_id(params[:id])
     proverb_h = proverb.attributes
     proverb_h["synonyms"] = proverb.proverb_synonyms.active
+    proverb_h["source"] = proverb.proverb_sources.active.first
     render json: proverb_h
   end
 
@@ -63,6 +64,11 @@ class Admin::ProverbController < Admin::Base
         elsif synonym[:proverb_synonym_id] != 0
           ProverbSynonym.create!(title: synonym[:title], proverb_synonym_id: synonym[:proverb_synonym_id], proverb_id: proverb.id,)
         end
+      end
+      if proverb.proverb_sources.first.blank? && params[:source].present?
+        proverb.proverb_sources.create!(title: params[:source])
+      else
+        proverb.proverb_sources.first.update!(title: params[:source])
       end
     rescue StandardError => e
       p e.message

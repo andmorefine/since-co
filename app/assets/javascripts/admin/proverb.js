@@ -115,6 +115,7 @@ if (document.getElementById('vue-proverb-edit')) {
           text: '',
           image: '',
           synonyms: [],
+          source: '',
           alphabetal_id: '0',
           delete_flag: false,
         },
@@ -179,6 +180,7 @@ if (document.getElementById('vue-proverb-edit')) {
           this.proverb.text = response.data.text;
           this.proverb.image = response.data.image;
           this.proverb.synonyms = response.data.synonyms;
+          this.proverb.source = response.data.source ? response.data.source.title : "";
           this.proverb.alphabetal_id = response.data.alphabetal_id;
           this.proverb.delete_flag = response.data.delete_flag ? true : false ;
         });
