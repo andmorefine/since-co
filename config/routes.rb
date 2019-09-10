@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :members
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  mount API::Root => '/'
+  # mount API::Root => '/'
 
   namespace :admin do
     resources :home do
