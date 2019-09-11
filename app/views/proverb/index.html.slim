@@ -11,7 +11,7 @@
     - @proverbs.each do |proverb|
       .card
         - if proverb.image.present?
-          img.card-img-top src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"
+          = image_tag "#{image_host}/img/proverb/#{proverb.image}", class: 'card-img-top', alt: "#{proverb.name} | andmorefine", title: "#{proverb.name} | andmorefine"
         .card-body
           h3.h4.card-title
             = proverb.name

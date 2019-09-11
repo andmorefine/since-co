@@ -64,6 +64,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'vuejs-rails'
 gem 'whenever', require: false
 gem 'zeroclipboard-rails'
+gem 'lazyload-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

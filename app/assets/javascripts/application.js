@@ -21,6 +21,7 @@
 //= require popper
 //= require bootstrap
 //= require jquery.autosize
+//= require jquery.lazyload
 
 //= require activestorage
 //= require_tree .

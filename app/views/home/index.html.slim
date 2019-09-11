@@ -1,8 +1,9 @@
 
-#vue-app.mt-2.container-fluid[v-cloak]
+.container-fluid.mt-2
   .card-columns
-    .card.mt-2.mr-2
-      img.card-img-top src="#{image_host}/img/proverb/#{@proverb_image}" alt="ことわざ【諺】"
+    .card.mr-2
+      = image_tag "#{image_host}/img/proverb/#{@proverb_image}", class: 'card-img-top', alt: "ことわざ【諺】", title: "ことわざ【諺】"
+      / img.card-img-top src="#{image_host}/img/proverb/#{@proverb_image}" alt="ことわざ【諺】"
       .card-body
         h4.card-title
           | ことわざ【諺】
@@ -13,7 +14,7 @@
     - @proverb_radom.each do |proverb|
       .card
         - if proverb.image.present?
-          img.card-img-top src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"
+          = image_tag "#{image_host}/img/proverb/#{proverb.image}", class: 'card-img-top', alt: "#{proverb.name} | andmorefine", title: "#{proverb.name} | andmorefine"
         .card-body
           .mt-1.text-center
             = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-primary"
@@ -35,7 +36,8 @@
   .card-columns
     - @twitters.each do |tweet|
       .card.mt-2.mr-2
-        img.icon-twitter src="#{tweet.user.profile_image_uri_https}" alt="#{tweet.user.name}"
+        - if tweet.user.profile_image_uri_https.present?
+          = image_tag "#{tweet.user.profile_image_uri_https}", class: 'icon-twitter', alt: "#{tweet.user.name}", title: "#{tweet.user.name}"
         .card-body
           .card-title
             = tweet.user.name
