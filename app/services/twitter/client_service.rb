@@ -5,6 +5,8 @@ class Twitter::ClientService
 
   def fetch
     client.search('#ことわざ', lang: 'ja', include_entities: true).take(5).collect
+  rescue => e
+    []
   end
 
   def create; end
