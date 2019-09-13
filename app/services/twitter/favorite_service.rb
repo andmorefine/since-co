@@ -24,7 +24,7 @@ class Twitter::FavoriteService
       twitter_count.increment!(:count, tweets.count)
       body_text = word + '（' + favorite_list.count.to_s + '/' + tweets.count.to_s + '）（' + twitter_count.count.to_s + '/' + twitter_count.limit.to_s + '）'
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
-    rescue StandardError => error
+    rescue => error
       body_text = word + ' error（' + error.to_s + '）'
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     end
