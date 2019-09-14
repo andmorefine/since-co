@@ -33,20 +33,19 @@
     / .card.mt-2.mr-2
     /   iframe[frameborder="0" height="480" width="100%" src="//andmorefine.base.ec/items/21255126/widget/large"]
 
-  - if @twitters.length > 0
-    .card-columns
-      - @twitters.each do |tweet|
-        .card.mt-2.mr-2
-          - if tweet.user.profile_image_uri_https.present?
-            = image_tag "#{tweet.user.profile_image_uri_https}", class: 'icon-twitter', alt: "#{tweet.user.name}", title: "#{tweet.user.name}"
-          .card-body
-            .card-title
-              = tweet.user.name
-            h6.card-text
-              - tweet.hashtags.each do |tw|
-                span.badge.badge-secondary.mr-1
-                  = tw.text
-            p.card-text
-              = tweet.text
+  / .card-columns
+  /   - @twitters.each do |tweet|
+  /     .card.mt-2.mr-2
+  /       - if tweet.user.profile_image_uri_https.present?
+  /         = image_tag "#{tweet.user.profile_image_uri_https}", class: 'icon-twitter', alt: "#{tweet.user.name}", title: "#{tweet.user.name}"
+  /       .card-body
+  /         .card-title
+  /           = tweet.user.name
+  /         h6.card-text
+  /           - tweet.hashtags.each do |tw|
+  /             span.badge.badge-secondary.mr-1
+  /               = tw.text
+  /         p.card-text
+  /           = tweet.text
 
   iframe[width="100%" height="315" src="//www.youtube.com/embed/qDniDuG8f90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen]
