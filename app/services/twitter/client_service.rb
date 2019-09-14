@@ -4,8 +4,8 @@ class Twitter::ClientService
   def initialize(params = {}); end
 
   def fetch
-    # client.search('#ことわざ', lang: 'ja', include_entities: true).take(5).collect
-  # rescue => e
+    client.search('#ことわざ', lang: 'ja', include_entities: true).take(5).collect
+  rescue => e
     []
   end
 
