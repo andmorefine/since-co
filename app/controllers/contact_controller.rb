@@ -13,6 +13,7 @@ class ContactController < ApplicationController
     message = "[info][title]#{contact[:subject]}[/title]#{contact[:body]}[/info]"
     Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: message).create
     Github::IssueService.new(title: contact_params[:subject], body: contact_params[:body]).create
+    NotificationMailer.send_confirm_to_user(contact).deliver_later
     redirect_to thanks_contact_index_path
   end
 

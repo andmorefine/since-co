@@ -29,7 +29,6 @@ gem 'gon'
 gem 'google-api-client', '~> 0.9'
 gem 'grape'
 gem 'gretel'
-gem 'hiredis'
 gem 'holiday_jp'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -94,4 +93,6 @@ group :development do
   gem 'pry-stack_explorer'
   gem 'tapp'
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
+  gem 'letter_opener_web'
 end
