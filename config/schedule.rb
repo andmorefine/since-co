@@ -9,7 +9,7 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-every 1.day, at: '5:00 am' do
+every 1.week, at: '5:00 am' do
   rake '-s sitemap:refresh'
 end
 
@@ -17,7 +17,7 @@ every :day, at: '00:00' do
   rake 'task_tweet_count:reset'
 end
 
-every 2.hours do
+every 1.hour do
   rake 'task_tweet_favorite:post'
 end
 
