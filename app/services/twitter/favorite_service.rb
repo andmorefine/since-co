@@ -8,7 +8,7 @@ class Twitter::FavoriteService
   def push_favorite
     search_words = %w[イラスト 絵描きさんと繋がりたい artwork]
     word = search_words.sample
-    tweets = client.search('#' + word, result_type: 'recent').take(30)
+    tweets = client.search('#' + word, result_type: 'recent').take(40)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status('/search/tweets')
@@ -18,7 +18,7 @@ class Twitter::FavoriteService
     begin
       favorite_list = []
       tweets.each do |tweet|
-        sleep(10.0)
+        sleep(15.0)
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
