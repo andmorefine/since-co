@@ -18,7 +18,7 @@ class Twitter::FavoriteService
     begin
       favorite_list = []
       tweets.each do |tweet|
-        sleep(15.0)
+        sleep(30.0)
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
