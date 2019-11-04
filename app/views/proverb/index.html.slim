@@ -20,6 +20,6 @@
           .mt-1.text-center
             = link_to "詳細", proverb_path(proverb.id), class: "btn btn-outline-primary"
   hr
-  div
+  .alphabetal-list
     - @m_alphabetals.each do |alphabetal|
-      = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"
+      = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary"

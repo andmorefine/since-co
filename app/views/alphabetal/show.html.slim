@@ -18,19 +18,18 @@
   .cf
     - @proverbs.active.each do |proverb|
       h3.float-left
-        / = link_to proverb.name, proverb_path(proverb.id), class: "btn btn-outline-secondary m-1"
         a.btn.btn-outline-secondary.m-1[href="/proverb/#{proverb.id}"]
           div
             = proverb.name
           - if proverb.image.present?
             img[style="width: 15rem;" src="#{image_host}/img/proverb/#{proverb.image}" alt="#{proverb.name} | andmorefine"]
   hr
-  div
+  .alphabetal-list
     - @m_alphabetals.each do |alphabetal|
       - if alphabetal.id == @alphabetal.id
-        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary m-1"
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary"
       - else
-        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary"
 
   .row.justify-content-center.mt-3
     .col-3

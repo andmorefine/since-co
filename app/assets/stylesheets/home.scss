@@ -10,9 +10,17 @@ body {
   min-height: 300px;
 }
 
+.l-header {
+  border-bottom: 2px solid #89659c;
+  margin-bottom: 1rem;
+}
+
+.l-nav {
+  margin-top: -1rem;
+}
+
 .breadcrumbs {
   padding: 0.2vw 1vw;
-  border-top: 2px solid #89659c;
   border-bottom: 1px solid #89659c;
   margin-bottom: 1rem;
   font-size: 80%;
@@ -26,3 +34,30 @@ body {
   border: 1px solid #d7d2de;
 }
 
+.alphabetal-list {
+  width: 91vw;
+  max-width: 345px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  .btn {
+    font-size: 1.2rem;
+    margin: 0 0.4rem 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+.others-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  .btn {
+    font-size: 1.2rem;
+    margin: 0 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+}

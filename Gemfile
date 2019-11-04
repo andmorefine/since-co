@@ -64,6 +64,7 @@ gem 'vuejs-rails'
 gem 'whenever', require: false
 gem 'zeroclipboard-rails'
 gem 'lazyload-rails'
+gem 'rack-user_agent', '>= 0.5.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -43,17 +43,17 @@
           = @source_title
 
   hr
-  .mt-5
+  .mt-5.others-list
     - @others.each do |other|
       - if other.id == @proverb.id
-        a.btn.btn-secondary.m-1 href="/proverb/#{other.id}"
+        a.btn.btn-secondary href="/proverb/#{other.id}"
           span
             = other.name
           - if other.image.present?
             .mt-2
               img.mx-auto.d-block width="100" src="#{image_host}/img/proverb/#{other.image}" alt="#{other.name} | andmorefine"
       - else
-        a.btn.btn-outline-secondary.m-1 href="/proverb/#{other.id}"
+        a.btn.btn-outline-secondary href="/proverb/#{other.id}"
           span
             = other.name
           - if other.image.present?
@@ -61,12 +61,12 @@
               img.mx-auto.d-block width="100" src="#{image_host}/img/proverb/#{other.image}" alt="#{other.name} | andmorefine"
 
   / hr
-  .mt-5
+  .mt-5.alphabetal-list
     - @m_alphabetals.each do |alphabetal|
       - if alphabetal.id == @proverb.alphabetal_id
-        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary m-1"
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-secondary"
       - else
-        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary m-1"
+        = link_to alphabetal.name, alphabetal_path(alphabetal.id), class: "btn btn-outline-secondary"
 
   .row.justify-content-center.mt-3
     .col-3

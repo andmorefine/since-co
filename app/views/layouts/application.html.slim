@@ -14,8 +14,9 @@ html
   body
 
     == render "layouts/nav"
-    nav
-      == breadcrumbs
+    - if request.from_pc?
+      nav.l-nav
+        == breadcrumbs
 
     == render "layouts/message"
 
