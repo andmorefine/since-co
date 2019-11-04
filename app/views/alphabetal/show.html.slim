@@ -15,10 +15,10 @@
       - if @alphabetal_next.present?
         = link_to ">", alphabetal_path(@alphabetal_next), class: "btn btn-outline-secondary"
   hr
-  .cf
+  .others-list
     - @proverbs.active.each do |proverb|
-      h3.float-left
-        a.btn.btn-outline-secondary.m-1[href="/proverb/#{proverb.id}"]
+      h3
+        a.btn.btn-outline-secondary[href="/proverb/#{proverb.id}"]
           div
             = proverb.name
           - if proverb.image.present?
