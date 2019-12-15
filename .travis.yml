@@ -1,0 +1,5 @@
+language: ruby
+services: postgresql
+bundler_args: "--without development --deployment -j4"
+cache: bundler
+script: bundle exec rspec

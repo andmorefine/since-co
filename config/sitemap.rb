@@ -9,9 +9,9 @@ SitemapGenerator::Sitemap.create do
   add proverb_index_path, priority: 0.7, changefreq: 'daily'
 
   Proverb.active.find_each do |proverb|
-    add proverb_path(proverb), lastmod: proverb.updated_at
+    add proverb_path(proverb), lastmod: Time.zone.now
   end
   MAlphabetal.find_each do |alphabetal|
-    add alphabetal_path(alphabetal), lastmod: alphabetal.updated_at
+    add alphabetal_path(alphabetal), lastmod: Time.zone.now
   end
 end

@@ -74,6 +74,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rubocop-rspec'
   gem 'simplecov'
+  gem 'codecov', :require => false, :group => :test
   gem 'test-prof'
   gem 'yard'
 end
