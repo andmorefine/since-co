@@ -6,26 +6,26 @@ class Twitter::FavoriteService
   def initialize(params = {}); end
 
   def push_favorite
-    search_words = %w[イラスト 絵描きさんと繋がりたい artwork]
-    # word = search_words.sample
+    search_words = %w[イラスト 絵描きさんと繋がりたい artwork イラスト好きな人と繋がりたい illustration お絵描き好きさんと繋がりたい]
+    word = search_words.sample
 
-    # 国トレンド取得
-    trends_available = client.__send__(:perform_get, '/1.1/trends/available.json')
-    contry_woeids = []
-    trends_available.each do |item|
-      if item[:countryCode] == 'JP'
-        contry_woeids.push(item[:woeid])
-      end
-    end
-    woeid = contry_woeids.sample
+    # # 国トレンド取得
+    # trends_available = client.__send__(:perform_get, '/1.1/trends/available.json')
+    # contry_woeids = []
+    # trends_available.each do |item|
+    #   if item[:countryCode] == 'JP'
+    #     contry_woeids.push(item[:woeid])
+    #   end
+    # end
+    # woeid = contry_woeids.sample
 
-    # woeid からトレンド取得
-    trends_place = client.__send__(:perform_get, "/1.1/trends/place.json?id=#{woeid}")
-    word_items = []
-    trends_place[0][:trends].each do |item|
-      word_items.push(item[:name].delete("#"))
-    end
-    word = word_items.sample
+    # # woeid からトレンド取得
+    # trends_place = client.__send__(:perform_get, "/1.1/trends/place.json?id=#{woeid}")
+    # word_items = []
+    # trends_place[0][:trends].each do |item|
+    #   word_items.push(item[:name].delete("#"))
+    # end
+    # word = word_items.sample
 
     # いいね準備
     tweets = client.search('#' + word, result_type: 'recent').take(40)
