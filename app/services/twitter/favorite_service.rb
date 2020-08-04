@@ -27,18 +27,24 @@ class Twitter::FavoriteService
     # end
     # word = word_items.sample
 
+    rando = Random.new
+    rando_num = rando.rand(20..40)
+
     # いいね準備
-    tweets = client.search('#' + word, result_type: 'recent').take(40)
+    tweets = client.search('#' + word, result_type: 'recent').take(rando_num)
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status('/search/tweets')
     twitter_count = Count.twitter
     return if twitter_count.count > twitter_count.limit
 
+    random = Random.new
+    random_num = random.rand(10..30)
+
     begin
       favorite_list = []
       tweets.each do |tweet|
-        sleep(30.0)
+        sleep(random_num)
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
