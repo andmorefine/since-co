@@ -9,24 +9,6 @@ class Twitter::FavoriteService
     search_words = %w[イラスト 絵描きさんと繋がりたい artwork イラスト好きな人と繋がりたい illustration お絵描き好きさんと繋がりたい]
     word = search_words.sample
 
-    # # 国トレンド取得
-    # trends_available = client.__send__(:perform_get, '/1.1/trends/available.json')
-    # contry_woeids = []
-    # trends_available.each do |item|
-    #   if item[:countryCode] == 'JP'
-    #     contry_woeids.push(item[:woeid])
-    #   end
-    # end
-    # woeid = contry_woeids.sample
-
-    # # woeid からトレンド取得
-    # trends_place = client.__send__(:perform_get, "/1.1/trends/place.json?id=#{woeid}")
-    # word_items = []
-    # trends_place[0][:trends].each do |item|
-    #   word_items.push(item[:name].delete("#"))
-    # end
-    # word = word_items.sample
-
     rando = Random.new
     rando_num = rando.rand(20..40)
 
@@ -35,8 +17,8 @@ class Twitter::FavoriteService
     rate_limit_status = client.__send__(:perform_get, '/1.1/application/rate_limit_status.json')
     # 15分当たり上限回数・残存回数・リセット時刻
     limit = client.rate_limit_status('/search/tweets')
-    twitter_count = Count.twitter
-    return if twitter_count.count > twitter_count.limit
+    # twitter_count = Count.twitter
+    # return if twitter_count.count > twitter_count.limit
 
     random = Random.new
     random_num = random.rand(10..30)
@@ -48,8 +30,9 @@ class Twitter::FavoriteService
         ok = client.favorite(tweet.id)
         favorite_list.push(tweet.id) if ok.present?
       end
-      twitter_count.increment!(:count, tweets.count)
-      body_text = word + '（' + favorite_list.count.to_s + '/' + tweets.count.to_s + '）（' + twitter_count.count.to_s + '/' + twitter_count.limit.to_s + '）'
+      # twitter_count.increment!(:count, tweets.count)
+      # body_text = word + '（' + favorite_list.count.to_s + '/' + tweets.count.to_s + '）（' + twitter_count.count.to_s + '/' + twitter_count.limit.to_s + '）'
+      body_text = word + ': ' + random_num.to_s + '秒ごと（' + favorite_list.count.to_s + '/' + tweets.count.to_s + '）'
       Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
     rescue => error
       body_text = word + ' error（' + error.to_s + '）'
@@ -58,8 +41,8 @@ class Twitter::FavoriteService
   end
 
   def reset_increment
-    twitter_count = Count.twitter
-    twitter_count.update!(count: 0)
+    # twitter_count = Count.twitter
+    # twitter_count.update!(count: 0)
     body_text = 'リセットしました'
     Chatwork::MessageService.new(room_id: CHATWORK_ROOM, body: body_text).create
   end
