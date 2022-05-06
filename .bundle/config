@@ -1,5 +1,5 @@
 ---
 BUNDLE_PATH: "vendor/bundle"
 BUNDLE_JOBS: "4"
-BUNDLE_DISABLE_SHARED_GEMS: "true"
-BUNDLE_BUILD__MYSQL2: "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
+BUNDLE_CLEAN: "true"
+BUNDLE_BUILD__MYSQL2: "--with-ldflags=-L/usr/local/opt/openssl@3/lib"
