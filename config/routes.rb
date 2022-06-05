@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # mount API::Root => '/'
 
+  # mount API::Root => '/api' # 追加
+
   namespace :admin do
     resources :home do
       collection do

@@ -21,9 +21,13 @@ module SinceCo
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
 
-    config.assets.paths << config.root.join('node_modules')
+    # config.assets.paths << config.root.join('node_modules')
 
-    config.eager_load_paths.push("#{config.root}/app/apis")
+    # config.eager_load_paths.push("#{config.root}/app/apis")
+
+    # 以下二行を追加。やっていることはpathの追加とautoloadの設定
+    config.paths.add File.join('app', 'apis'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'apis', '*')]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
